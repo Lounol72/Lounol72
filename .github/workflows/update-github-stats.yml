@@ -27,10 +27,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci # Plus sécurisé que npm install
+        run: npm install axios zlib # Installation directe des dépendances
 
       - name: Fetch GitHub stats
         run: node .github/scripts/fetch-github-stats.js

@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+// Zlib est une bibliothèque intégrée à Node.js, pas besoin de l'installer séparément
 const zlib = require('zlib');
 
 const username = process.env.USERNAME || 'Lounol72';
@@ -46,12 +47,16 @@ async function fetchGitHubStats() {
     // Minifier le JSON
     const minifiedData = JSON.stringify({stats, repos});
     
-    // Option 1: Simplement minifié
+    // Écriture du fichier minifié
     fs.writeFileSync(path.join(dataDir, 'github.json'), minifiedData);
     
-    // Option 2: Avec compression gzip (pour les serveurs qui supportent la décompression)
-    const compressed = zlib.gzipSync(minifiedData);
-    fs.writeFileSync(path.join(dataDir, 'github.json.gz'), compressed);
+    // Version compressée (optionnel)
+    try {
+      const compressed = zlib.gzipSync(minifiedData);
+      fs.writeFileSync(path.join(dataDir, 'github.json.gz'), compressed);
+    } catch (compressionError) {
+      console.warn('Warning: Could not create compressed version:', compressionError.message);
+    }
     
     console.log('GitHub stats updated successfully!');
   } catch (error) {

@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-github-stats",
+  "version": "1.0.0",
+  "description": "GitHub stats updater for portfolio",
+  "private": true,
+  "scripts": {
+    "update-stats": "node ./.github/scripts/fetch-github-stats.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "zlib": "^1.0.5"
+  }
+} 
