@@ -1,0 +1,45 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    # Exécution quotidienne à minuit
+    - cron: '0 0 * * *'
+  # Permet l'exécution manuelle du workflow
+  workflow_dispatch:
+  # Mise à jour après chaque push sur la branche principale
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'data/**'  # Évite les boucles infinies
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Permission minimale requise
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false # Sécurité améliorée
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci # Plus sécurisé que npm install
+
+      - name: Fetch GitHub stats
+        run: node .github/scripts/fetch-github-stats.js
+        env:
+          USERNAME: ${{ github.repository_owner }} # Utilise automatiquement le propriétaire du repo
+
+      - name: Commit changes if needed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update GitHub stats [skip ci]" && git push) 
