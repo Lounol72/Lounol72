@@ -5,13 +5,16 @@ export default defineConfig({
   plugins: [react()],
   // Configuration pour GitHub Pages
   base: '/Lounol72/',
+  // Point d'entrée dans le dossier react
+  root: 'react',
+  publicDir: '../public',
   server: {
     port: 3000,
     open: true,
     host: true
   },
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
     sourcemap: true,
     rollupOptions: {
       output: {
