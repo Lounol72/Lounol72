@@ -6,17 +6,18 @@
 @import "variables";
 @import "mixins";
 
-// Import des composants
-@import "reset";
-@import "layout";
-@import "components";
-@import "navigation";
-@import "sections";
-@import "portfolio";
-@import "github";
-@import "footer";
-@import "responsive";
-@import "utilities";
+// Import des composants existants
+@import "01-variables";
+@import "02-reset";
+@import "03-layout";
+@import "04-components";
+@import "05-navigation";
+@import "06-sections";
+@import "07-portfolio";
+@import "08-github";
+@import "09-footer";
+@import "10-responsive";
+@import "11-utilities";
 
 // Styles spécifiques au formulaire de contact
 .contact-form-container {

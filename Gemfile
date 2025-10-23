@@ -5,6 +5,8 @@ gem "jekyll", "~> 4.3.0"
 gem "jekyll-feed", "~> 0.12"
 gem "jekyll-sitemap", "~> 1.4"
 gem "jekyll-seo-tag", "~> 2.8"
+gem "jekyll-sass-converter", "~> 3.0"
+gem "jekyll-relative-links", "~> 0.7"
 
 # Theme
 gem "minima", "~> 2.5"
@@ -17,6 +19,8 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap", "~> 1.4"
   gem "jekyll-seo-tag", "~> 2.8"
+  gem "jekyll-sass-converter", "~> 3.0"
+  gem "jekyll-relative-links", "~> 0.7"
 end
 
 # Windows et JRuby ne supportent pas les gems natives
