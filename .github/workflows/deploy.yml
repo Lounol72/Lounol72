@@ -45,7 +45,6 @@ jobs:
           cp -r css dist/
           cp -r img dist/
           cp -r data dist/
-          cp index.html dist/
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
