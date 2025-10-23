@@ -1,0 +1,50 @@
+# Configuration Jekyll pour le portfolio de Louis Subtil
+title: "Louis Subtil | Portfolio"
+description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Université du Mans"
+author: "Louis Subtil"
+email: "louis.subtil@etu.univ-lemans.fr"
+url: "https://louno172.github.io"
+baseurl: "/Louno172"
+
+# Configuration Jekyll
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Configuration des pages
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Configuration des assets
+sass:
+  style: compressed
+
+# Configuration du site
+timezone: Europe/Paris
+locale: fr_FR
+
+# Variables personnalisées
+github_username: louno172
+university: "Université du Mans"
+course: "Informatique"

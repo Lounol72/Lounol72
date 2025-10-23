@@ -1,0 +1,111 @@
+---
+layout: default
+title: "Accueil"
+description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Université du Mans"
+---
+
+<div id="root">
+    <!-- Section Hero -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Louis Subtil</h1>
+                <p class="hero-subtitle">Étudiant en Informatique</p>
+                <p class="hero-description">Passionné par le développement web et les nouvelles technologies</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Découvrir</a>
+                    <a href="#contact" class="btn btn-secondary">Contact</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Étudiant en Informatique à l'{{ site.university }}, je me passionne pour le développement web et les technologies modernes.</p>
+                    <p>Mon objectif est de devenir un développeur full-stack compétent, capable de créer des applications web innovantes et performantes.</p>
+                </div>
+                <div class="about-skills">
+                    <h3>Compétences</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Portfolio -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title">Mes Projets</h2>
+            <div class="portfolio-grid">
+                <!-- Les projets seront chargés dynamiquement -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{{ '/img/hqdefault.jpeg' | relative_url }}" alt="Projet 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Projet Portfolio</h3>
+                        <p>Développement de ce portfolio avec Jekyll et GitHub Pages</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jekyll</span>
+                            <span class="tech-tag">GitHub Pages</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/{{ site.github_username }}/Louno172" class="btn btn-outline">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>{{ site.email }}</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>{{ site.university }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Scripts -->
+<script src="{{ '/js/portfolio.js' | relative_url }}"></script>

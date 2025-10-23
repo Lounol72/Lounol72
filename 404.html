@@ -1,0 +1,42 @@
+---
+layout: default
+title: "Page non trouvée"
+permalink: /404.html
+---
+
+<div class="error-page">
+    <div class="container">
+        <h1>404</h1>
+        <h2>Page non trouvée</h2>
+        <p>Désolé, la page que vous cherchez n'existe pas.</p>
+        <a href="{{ '/' | relative_url }}" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
+</div>
+
+<style>
+.error-page {
+    text-align: center;
+    padding: 100px 0;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page h1 {
+    font-size: 6rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.error-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.error-page p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+}
+</style>
