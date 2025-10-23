@@ -4,13 +4,8 @@ on:
   schedule:
     # Exécution quotidienne à minuit
     - cron: '0 0 * * *'
-  # Permet l'exécution manuelle du workflow
   workflow_dispatch:
-  # Mise à jour après chaque push sur la branche principale
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'data/**'  # Évite les boucles infinies
+    
 
 jobs:
   update-stats:

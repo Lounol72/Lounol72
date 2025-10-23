@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Simple - Portfolio</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #090706;
+            color: #ebe5e2;
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #c6b2ab;
+            border-radius: 8px;
+        }
+        .success { border-color: #7ed321; }
+        .error { border-color: #f5576c; }
+        .loading { border-color: #f5a623; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Test de Diagnostic - Portfolio Louis Subtil</h1>
+    
+    <div class="test-section">
+        <h2>📁 Structure des fichiers</h2>
+        <p>Vérification de l'existence des fichiers critiques...</p>
+        <ul>
+            <li>✅ index.html - Fichier principal</li>
+            <li>✅ css/main.css - Styles principaux</li>
+            <li>✅ react/main.jsx - Point d'entrée React</li>
+            <li>✅ react/App.jsx - Composant principal</li>
+            <li>✅ data/github.json - Données GitHub</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🎨 CSS</h2>
+        <p>Test des styles CSS...</p>
+        <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+            Test des variables CSS - Couleur primaire
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Données GitHub</h2>
+        <p>Test du chargement des données GitHub...</p>
+        <div id="github-test">
+            <p>Chargement en cours...</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>⚛️ React</h2>
+        <p>Test du chargement de React...</p>
+        <div id="react-test">
+            <p>Vérification de React...</p>
+        </div>
+    </div>
+
+    <script>
+        // Test des données GitHub
+        fetch('/data/github.json')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Erreur HTTP: ' + response.status);
+            })
+            .then(data => {
+                document.getElementById('github-test').innerHTML = `
+                    <div class="success">
+                        <p>✅ Données GitHub chargées avec succès!</p>
+                        <p>📊 ${data.stats ? data.stats.r : 0} repositories</p>
+                        <p>⭐ ${data.stats ? data.stats.s : 0} étoiles totales</p>
+                        <p>👥 ${data.stats ? data.stats.f : 0} followers</p>
+                        <p>📁 ${data.repos ? data.repos.length : 0} projets récents</p>
+                    </div>
+                `;
+            })
+            .catch(error => {
+                document.getElementById('github-test').innerHTML = `
+                    <div class="error">
+                        <p>❌ Erreur lors du chargement des données GitHub:</p>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            });
+
+        // Test de React
+        setTimeout(() => {
+            const root = document.getElementById('root');
+            if (root && root.children.length > 0) {
+                document.getElementById('react-test').innerHTML = `
+                    <div class="success">
+                        <p>✅ React chargé avec succès!</p>
+                        <p>📦 ${root.children.length} éléments dans le DOM</p>
+                    </div>
+                `;
+            } else {
+                document.getElementById('react-test').innerHTML = `
+                    <div class="error">
+                        <p>❌ React ne semble pas s'être chargé</p>
+                        <p>Vérifiez la console pour les erreurs</p>
+                    </div>
+                `;
+            }
+        }, 3000);
+    </script>
+
+    <script type="module" src="/react/main.jsx"></script>
+</body>
+</html>

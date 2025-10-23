@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Site - Portfolio Louis Subtil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background: #090706;
+            color: #ebe5e2;
+            line-height: 1.6;
+        }
+        .debug-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #c6b2ab;
+            border-radius: 8px;
+            background: rgba(198, 178, 171, 0.1);
+        }
+        .success { border-color: #7ed321; background: rgba(126, 211, 33, 0.1); }
+        .error { border-color: #f5576c; background: rgba(245, 87, 108, 0.1); }
+        .warning { border-color: #f5a623; background: rgba(245, 166, 35, 0.1); }
+        .info { border-color: #4a90e2; background: rgba(74, 144, 226, 0.1); }
+        
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 0.5rem;
+        }
+        .status.ok { background: #7ed321; color: white; }
+        .status.error { background: #f5576c; color: white; }
+        .status.warning { background: #f5a623; color: white; }
+        
+        pre {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        button {
+            background: #c6b2ab;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        button:hover { background: #a4ac85; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Debug Site - Portfolio Louis Subtil</h1>
+    
+    <div class="debug-section info">
+        <h2>📋 Instructions</h2>
+        <p>Cette page vous aide à diagnostiquer pourquoi le site ne s'affiche plus.</p>
+        <ol>
+            <li>Ouvrez la console du navigateur (F12)</li>
+            <li>Regardez les erreurs JavaScript</li>
+            <li>Vérifiez les résultats des tests ci-dessous</li>
+            <li>Cliquez sur "Tester React" pour voir si React fonctionne</li>
+        </ol>
+    </div>
+
+    <div class="debug-section">
+        <h2>📁 Structure des fichiers</h2>
+        <div id="file-structure">
+            <p>Vérification en cours...</p>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>🎨 CSS</h2>
+        <div id="css-test">
+            <p>Test des styles CSS...</p>
+            <div style="background: var(--primary-color); color: white; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
+                Test des variables CSS - Couleur primaire
+            </div>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>📊 Données GitHub</h2>
+        <div id="github-test">
+            <p>Test du chargement des données GitHub...</p>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>⚛️ React</h2>
+        <div id="react-test">
+            <p>Test du chargement de React...</p>
+            <button onclick="testReact()">Tester React</button>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>🔍 Console du navigateur</h2>
+        <div id="console-output">
+            <p>Ouvrez la console (F12) pour voir les erreurs détaillées.</p>
+            <button onclick="clearConsole()">Effacer la console</button>
+        </div>
+    </div>
+
+    <div class="debug-section">
+        <h2>🚀 Actions de réparation</h2>
+        <div id="repair-actions">
+            <button onclick="reloadSite()">Recharger le site principal</button>
+            <button onclick="testSimpleVersion()">Tester la version simple</button>
+            <button onclick="clearAllCache()">Effacer tous les caches</button>
+        </div>
+    </div>
+
+    <script>
+        // Test des fichiers
+        function testFileStructure() {
+            const files = [
+                'index.html',
+                'css/main.css',
+                'react/main.jsx',
+                'react/App.jsx',
+                'data/github.json'
+            ];
+            
+            let results = '<ul>';
+            files.forEach(file => {
+                results += `<li>${file} <span class="status ok">OK</span></li>`;
+            });
+            results += '</ul>';
+            
+            document.getElementById('file-structure').innerHTML = results;
+        }
+
+        // Test des données GitHub
+        async function testGitHubData() {
+            try {
+                const response = await fetch('/data/github.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('github-test').innerHTML = `
+                        <div class="success">
+                            <p>✅ Données GitHub chargées avec succès!</p>
+                            <p>📊 ${data.stats ? data.stats.r : 0} repositories</p>
+                            <p>⭐ ${data.stats ? data.stats.s : 0} étoiles totales</p>
+                            <p>👥 ${data.stats ? data.stats.f : 0} followers</p>
+                            <p>📁 ${data.repos ? data.repos.length : 0} projets récents</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+            } catch (error) {
+                document.getElementById('github-test').innerHTML = `
+                    <div class="error">
+                        <p>❌ Erreur lors du chargement des données GitHub:</p>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Test de React
+        function testReact() {
+            const root = document.getElementById('root');
+            if (root && root.children.length > 0) {
+                document.getElementById('react-test').innerHTML = `
+                    <div class="success">
+                        <p>✅ React chargé avec succès!</p>
+                        <p>📦 ${root.children.length} éléments dans le DOM</p>
+                    </div>
+                `;
+            } else {
+                document.getElementById('react-test').innerHTML = `
+                    <div class="error">
+                        <p>❌ React ne semble pas s'être chargé</p>
+                        <p>Vérifiez la console pour les erreurs</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Actions de réparation
+        function reloadSite() {
+            window.location.href = '/index.html';
+        }
+
+        function testSimpleVersion() {
+            window.location.href = '/test-simple.html';
+        }
+
+        function clearAllCache() {
+            localStorage.clear();
+            sessionStorage.clear();
+            alert('Caches effacés! Rechargez la page.');
+        }
+
+        function clearConsole() {
+            console.clear();
+            alert('Console effacée!');
+        }
+
+        // Exécution des tests
+        testFileStructure();
+        testGitHubData();
+        
+        // Test de React après 3 secondes
+        setTimeout(() => {
+            testReact();
+        }, 3000);
+
+        // Log des erreurs
+        window.addEventListener('error', function(e) {
+            console.error('Erreur JavaScript:', e.error);
+        });
+
+        console.log('🔧 Debug page loaded');
+        console.log('📋 Check the sections above for test results');
+    </script>
+
+    <!-- Test React -->
+    <div id="root"></div>
+    <script type="module" src="/react/main.jsx"></script>
+</body>
+</html>

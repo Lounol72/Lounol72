@@ -1,0 +1,90 @@
+name: Update GitHub Cache
+
+# Mise à jour automatique du cache GitHub toutes les semaines
+on:
+  schedule:
+    # Tous les dimanches à 2h00 UTC (3h00 heure française en hiver, 4h00 en été)
+    - cron: '0 2 * * 0'
+  
+  # Permet aussi de déclencher manuellement
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update even if cache is recent'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  update-cache:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Update GitHub cache
+      run: node .github/scripts/fetch-github-stats.js
+      env:
+        USERNAME: ${{ github.repository_owner }}
+        
+    - name: Verify cache file
+      run: |
+        if [ -f "data/github.json" ]; then
+          echo "✅ Cache file created successfully"
+          echo "📊 Cache size: $(du -h data/github.json | cut -f1)"
+          echo "🔍 Content preview:"
+          head -c 200 data/github.json
+          echo ""
+        else
+          echo "❌ Cache file not found"
+          exit 1
+        fi
+        
+    - name: Security check
+      run: |
+        echo "🔒 Checking for sensitive data..."
+        if grep -q "email\|private\|token\|key\|secret" data/github.json; then
+          echo "❌ Sensitive data detected in cache!"
+          exit 1
+        else
+          echo "✅ No sensitive data found"
+        fi
+        
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        if git diff --quiet data/github.json; then
+          echo "📝 No changes to commit"
+        else
+          git add data/github.json
+          git commit -m "🔄 Update GitHub cache [automated]
+          
+          - Updated on: $(date)
+          - Repos: $(jq '.stats.r' data/github.json)
+          - Stars: $(jq '.stats.s' data/github.json)
+          - Followers: $(jq '.stats.f' data/github.json)
+          
+          This is an automated update of the GitHub cache.
+          Only public data is stored for security."
+          
+          git push
+          echo "✅ Cache updated and pushed"
+        fi
+        
+    - name: Cleanup
+      run: |
+        echo "🧹 Cleaning up temporary files..."
+        rm -rf node_modules
+        echo "✅ Cleanup completed"

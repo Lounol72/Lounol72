@@ -1,0 +1,118 @@
+/* ========================================
+   LAYOUT & GRID SYSTEM
+   ======================================== */
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-xl);
+  width: 100%;
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+/* === SECTIONS === */
+section {
+  padding: var(--spacing-3xl) 0;
+  position: relative;
+}
+
+section:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* === GRID SYSTEM === */
+.grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* === FLEXBOX UTILITIES === */
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex--between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex--column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex--wrap {
+  flex-wrap: wrap;
+}
+
+/* === SPACING UTILITIES === */
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+/* === TEXT UTILITIES === */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-accent { color: var(--accent-color); }
+
+/* === VISIBILITY === */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}

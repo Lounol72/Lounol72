@@ -1,0 +1,420 @@
+/* ========================================
+   PAGE SECTIONS
+   ======================================== */
+
+/* === HERO SECTION === */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
+              url('../img/hqdefault.jpeg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: var(--spacing-xl);
+  z-index: 2;
+}
+
+.hero-name {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.9;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  margin-bottom: var(--spacing-xl);
+  opacity: 0.8;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--spacing-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* === ABOUT SECTION === */
+.about {
+  background-color: #12100f;
+  color: var(--text-color);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-text {
+  max-width: 800px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.about-paragraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* === SKILLS SECTION === */
+.skills {
+  background-color: var(--background-color);
+}
+
+.skills-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.skill-filter {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  background-color: rgba(198, 178, 171, 0.15);
+  color: var(--text-color);
+  border-radius: var(--border-radius-xl);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.skill-filter.active,
+.skill-filter:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.skills-content {
+  margin-top: var(--spacing-xl);
+}
+
+.skills-category h3 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.skill-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-name {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.skill-percentage {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.skill-bar-container {
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: var(--border-radius-sm);
+  transition: width 1.5s ease;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+
+.skill-tag {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(164, 172, 133, 0.15);
+  border-radius: var(--border-radius-xl);
+  font-size: 0.9rem;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* === EDUCATION SECTION === */
+.education {
+  background-color: #12100f;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-color);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.dot-inner {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: var(--spacing-lg);
+  background-color: rgba(198, 178, 171, 0.1);
+  border-radius: var(--border-radius-lg);
+  margin-left: 55%;
+  transition: all var(--transition-normal);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 0;
+  margin-right: 55%;
+}
+
+.timeline-content:hover {
+  transform: translateY(-5px);
+  background-color: rgba(198, 178, 171, 0.15);
+  box-shadow: var(--shadow-lg);
+}
+
+.timeline-content h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  margin-bottom: var(--spacing-md);
+}
+
+/* === CONTACT SECTION === */
+.contact {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: var(--text-color);
+}
+
+.contact h2::after {
+  background-color: white;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: 1.1rem;
+  transition: all var(--transition-normal);
+}
+
+.contact-item i {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  width: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.social-links a:hover {
+  background-color: white;
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-button {
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  padding: var(--spacing-md) var(--spacing-xl);
+  border-radius: var(--border-radius-xl);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: 1rem;
+}
+
+.submit-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submit-status {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  font-weight: 500;
+}
+
+.submit-status.success {
+  background-color: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+}
+
+.submit-status.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}

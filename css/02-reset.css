@@ -1,0 +1,144 @@
+/* ========================================
+   CSS RESET & BASE STYLES
+   ======================================== */
+
+/* === MODERN CSS RESET === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === SMOOTH SCROLLING === */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* === BODY BASE === */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-optical-sizing: var(--font-optical-sizing);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-lg);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  position: relative;
+  padding-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-sm);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+h5 {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+}
+
+h6 {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+}
+
+p {
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* === LINKS === */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* === LISTS === */
+ul, ol {
+  list-style: none;
+}
+
+/* === IMAGES === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === BUTTONS === */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+  transition: all var(--transition-normal);
+}
+
+/* === FOCUS STYLES === */
+:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* === SELECTION === */
+::selection {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--border-radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

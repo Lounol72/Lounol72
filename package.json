@@ -1,13 +1,25 @@
 {
-  "name": "portfolio-github-stats",
+  "name": "portfolio-louis-subtil",
   "version": "1.0.0",
-  "description": "GitHub stats updater for portfolio",
+  "description": "Portfolio React de Louis Subtil - Étudiant en Informatique",
   "private": true,
+  "type": "module",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "update-stats": "node ./.github/scripts/fetch-github-stats.js"
   },
   "dependencies": {
     "axios": "^1.6.2",
-    "zlib": "^1.0.5"
+    "framer-motion": "^10.16.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^7.1.12"
   }
-} 
+}

@@ -1,0 +1,274 @@
+/* ========================================
+   MAIN CSS FILE - PORTFOLIO LOUIS SUBTIL
+   ======================================== */
+
+/* === CSS IMPORTS === */
+@import url('./01-variables.css');
+@import url('./02-reset.css');
+@import url('./03-layout.css');
+@import url('./04-components.css');
+@import url('./05-navigation.css');
+@import url('./06-sections.css');
+@import url('./07-portfolio.css');
+@import url('./08-github.css');
+@import url('./09-footer.css');
+@import url('./10-responsive.css');
+@import url('./11-utilities.css');
+
+/* === CUSTOM PROPERTIES OVERRIDES === */
+:root {
+  /* Ensure smooth scrolling for the entire document */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* === BODY ENHANCEMENTS === */
+body {
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  
+  /* Better scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  
+  /* Prevent horizontal scroll */
+  overflow-x: hidden;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+* {
+  /* Optimize repaints */
+  will-change: auto;
+}
+
+/* Only apply will-change when needed */
+.hover-lift,
+.hover-scale,
+.hover-rotate {
+  will-change: transform;
+}
+
+/* === ACCESSIBILITY ENHANCEMENTS === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === HIGH CONTRAST MODE === */
+@media (prefers-contrast: high) {
+  :root {
+    --background-color: #000000;
+    --text-color: #ffffff;
+    --primary-color: #ffffff;
+    --secondary-color: #ffffff;
+    --accent-color: #ffffff;
+  }
+  
+  .btn,
+  .card,
+  .nav-item {
+    border: 2px solid currentColor;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  .header,
+  .nav-mobile,
+  .back-to-top,
+  .scroll-indicator,
+  .social-links {
+    display: none !important;
+  }
+  
+  .hero {
+    height: auto;
+    background: none !important;
+    color: black !important;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    padding: 1rem 0;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+}
+
+/* === DARK MODE SUPPORT === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* === FOCUS MANAGEMENT === */
+.focus-trap {
+  position: relative;
+}
+
+.focus-trap:focus-within {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* === LOADING STATES === */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+/* === ERROR STATES === */
+.error {
+  border-color: #f44336 !important;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2) !important;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+/* === SUCCESS STATES === */
+.success {
+  border-color: #4caf50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+/* === DISABLED STATES === */
+.disabled,
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* === SELECTION STYLES === */
+::selection {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+::-moz-selection {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+/* === SCROLLBAR STYLES === */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: var(--border-radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--background-color);
+}
+
+/* === FIREFOX SCROLLBAR === */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--background-color);
+}
+
+/* === INTERSECTION OBSERVER ANIMATIONS === */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === CONTAINER QUERIES (FUTURE SUPPORT) === */
+@supports (container-type: inline-size) {
+  .container-query {
+    container-type: inline-size;
+  }
+  
+  @container (min-width: 300px) {
+    .container-sm {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @container (min-width: 600px) {
+    .container-md {
+      font-size: 1rem;
+    }
+  }
+  
+  @container (min-width: 900px) {
+    .container-lg {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* === CRITICAL CSS INLINE === */
+/* This would typically be inlined in the HTML head for performance */
+.critical-css {
+  /* Critical above-the-fold styles would go here */
+  display: none;
+}
+
+/* === END OF MAIN CSS === */

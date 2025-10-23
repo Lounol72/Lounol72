@@ -1,0 +1,467 @@
+/* ========================================
+   PORTFOLIO & PROJECTS
+   ======================================== */
+
+/* === PORTFOLIO SECTION === */
+.portfolio {
+  background-color: var(--background-color);
+}
+
+/* Loading state for portfolio */
+.portfolio .loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.portfolio .loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--primary-color);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.portfolio .loading p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Error state for portfolio */
+.portfolio .error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.portfolio .error-message p {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* No projects message */
+.no-projects {
+  text-align: center;
+  padding: 3rem 0;
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 1.1rem;
+}
+
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.filter {
+  margin: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  background-color: rgba(198, 178, 171, 0.15);
+  color: var(--text-color);
+  border-radius: var(--border-radius-xl);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.filter.active,
+.filter:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Filter count badges */
+.filter-count {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  min-width: 1.5rem;
+  text-align: center;
+}
+
+/* === PORTFOLIO GRID === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: var(--spacing-2xl);
+}
+
+.portfolio-item {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  background: var(--background-color);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+}
+
+.portfolio-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.portfolio-overlay i {
+  color: white;
+  font-size: 2rem;
+}
+
+.portfolio-info {
+  padding: var(--spacing-lg);
+  background: var(--background-color);
+}
+
+.portfolio-info h3 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-color);
+  font-size: 1.3rem;
+}
+
+.portfolio-info p {
+  margin-bottom: var(--spacing-md);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Portfolio meta information */
+.portfolio-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.portfolio-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portfolio-meta i {
+  color: var(--primary-color);
+}
+
+/* Portfolio technologies */
+.portfolio-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* Category badges */
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.category-badge i {
+  font-size: 0.9rem;
+}
+
+/* Portfolio actions */
+.portfolio-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.portfolio-actions .btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Modal GitHub stats */
+.modal-github-stats {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: rgba(164, 172, 133, 0.1);
+  border-radius: var(--border-radius-lg);
+  border-left: 4px solid var(--accent-color);
+}
+
+.modal-github-stats h4 {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.github-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.stat-item i {
+  color: var(--primary-color);
+  width: 16px;
+  text-align: center;
+}
+
+.portfolio-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.tech-tag {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: rgba(164, 172, 133, 0.2);
+  border-radius: var(--border-radius-xl);
+  font-size: 0.8rem;
+  color: var(--accent-color);
+  transition: all var(--transition-normal);
+}
+
+.tech-tag:hover {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
+
+.view-project {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.view-project::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-normal);
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.view-project:hover {
+  color: var(--accent-color);
+}
+
+.view-project:hover::after {
+  width: 20px;
+}
+
+/* === PROJECT MODAL === */
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--spacing-xl);
+}
+
+.project-modal {
+  background: var(--background-color);
+  border-radius: var(--border-radius-lg);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1;
+  padding: var(--spacing-sm);
+  border-radius: 50%;
+  transition: all var(--transition-normal);
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--primary-color);
+}
+
+.modal-content {
+  padding: var(--spacing-xl);
+}
+
+.modal-image {
+  margin-bottom: var(--spacing-xl);
+}
+
+.modal-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--border-radius-lg);
+}
+
+.modal-info h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.modal-description {
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.modal-tech h4 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+}
+
+.modal-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.modal-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-xl);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.modal-button.github {
+  background: #333;
+  color: white;
+}
+
+.modal-button.demo {
+  background: var(--primary-color);
+  color: white;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* === NO PROJECTS === */
+.no-projects {
+  text-align: center;
+  padding: var(--spacing-3xl);
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: var(--spacing-md);
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+  }
+  
+  .project-modal-overlay {
+    padding: var(--spacing-md);
+  }
+}
