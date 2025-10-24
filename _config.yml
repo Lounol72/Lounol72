@@ -4,7 +4,7 @@ description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Univers
 author: "Louis Subtil"
 email: "louis.subtil@etu.univ-lemans.fr"
 url: "https://louno172.github.io"
-baseurl: "/Louno172"
+baseurl: ""
 
 # Configuration Jekyll
 markdown: kramdown
