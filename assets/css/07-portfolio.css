@@ -5,6 +5,18 @@
 /* === PORTFOLIO SECTION === */
 .portfolio {
   background-color: var(--background-color);
+  padding: var(--spacing-3xl) 0;
+}
+
+.portfolio-description {
+  text-align: center;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-2xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Loading state for portfolio */
@@ -41,12 +53,24 @@
   justify-content: center;
   padding: 3rem 0;
   text-align: center;
+  color: var(--text-color);
+}
+
+.portfolio .error-message i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
 }
 
 .portfolio .error-message p {
   color: var(--text-color);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.portfolio .error-message .btn {
+  margin-top: 1rem;
 }
 
 /* No projects message */
@@ -64,6 +88,7 @@
   flex-wrap: wrap;
   gap: var(--spacing-md);
   margin-bottom: var(--spacing-2xl);
+  padding: 0 var(--spacing-lg);
 }
 
 .filter {
@@ -77,6 +102,11 @@
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .filter.active,
@@ -92,9 +122,16 @@
   border-radius: 50%;
   padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
-  margin-left: 0.5rem;
   min-width: 1.5rem;
   text-align: center;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.filter.active .filter-count,
+.filter:hover .filter-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
 
 /* === PORTFOLIO GRID === */
@@ -216,10 +253,17 @@
   font-size: 0.8rem;
   font-weight: 500;
   margin-top: 0.5rem;
+  border: 1px solid currentColor;
+  transition: all var(--transition-normal);
 }
 
 .category-badge i {
   font-size: 0.9rem;
+}
+
+.category-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Portfolio actions */
@@ -234,6 +278,38 @@
   text-align: center;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border-radius: var(--border-radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.portfolio-actions .btn--primary {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+}
+
+.portfolio-actions .btn--primary:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.portfolio-actions .btn--secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.portfolio-actions .btn--secondary:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Modal GitHub stats */
@@ -286,11 +362,15 @@
   font-size: 0.8rem;
   color: var(--accent-color);
   transition: all var(--transition-normal);
+  border: 1px solid rgba(164, 172, 133, 0.3);
+  font-weight: 500;
 }
 
 .tech-tag:hover {
   background-color: var(--accent-color);
   color: var(--background-color);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .view-project {
@@ -447,10 +527,53 @@
   opacity: 0.7;
 }
 
+/* === ANIMATIONS === */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-item {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  .portfolio-filters {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .filter {
+    width: 100%;
+    max-width: 200px;
+    justify-content: center;
+  }
+  
+  .portfolio-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .portfolio-actions .btn {
+    width: 100%;
   }
   
   .modal-content {
@@ -463,5 +586,26 @@
   
   .project-modal-overlay {
     padding: var(--spacing-md);
+  }
+  
+  .portfolio-description {
+    font-size: 1rem;
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .portfolio-item {
+    margin: 0 var(--spacing-sm);
+  }
+  
+  .filter {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-md);
   }
 }

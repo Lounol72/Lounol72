@@ -1,0 +1,30 @@
+{
+  "name": "lounol72-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio automatique avec GitHub Actions",
+  "main": "index.html",
+  "scripts": {
+    "update-portfolio": "node scripts/fetch-github-data.js",
+    "test": "node scripts/test-portfolio.js",
+    "test-portfolio": "node scripts/test-portfolio.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "portfolio",
+    "github",
+    "automation",
+    "static-site"
+  ],
+  "author": "Louis Subtil",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louno172/Lounol72.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

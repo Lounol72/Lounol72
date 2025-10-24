@@ -1,0 +1,39 @@
+{
+  "projects": [],
+  "categories": {
+    "Université": {
+      "description": "Projets réalisés dans le cadre de mes études à l'Université du Mans",
+      "icon": "fas fa-graduation-cap",
+      "color": "#4A90E2"
+    },
+    "Personnel": {
+      "description": "Projets personnels et expérimentations",
+      "icon": "fas fa-user",
+      "color": "#7ED321"
+    },
+    "GameJam": {
+      "description": "Jeux développés lors d'événements GameJam",
+      "icon": "fas fa-gamepad",
+      "color": "#F5A623"
+    }
+  },
+  "stats": {
+    "totalProjects": 0,
+    "byCategory": {},
+    "totalStars": 0,
+    "totalForks": 0,
+    "lastUpdated": "2024-01-01",
+    "userStats": {
+      "totalRepos": 0,
+      "totalStars": 0,
+      "followers": 0,
+      "following": 0
+    }
+  },
+  "metadata": {
+    "generatedAt": "2024-01-01T00:00:00.000Z",
+    "generatedBy": "Initial Setup",
+    "source": "Manual",
+    "username": "louno172"
+  }
+}

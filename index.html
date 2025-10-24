@@ -84,20 +84,35 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="assets/images/hqdefault.jpeg" alt="Projet 1">
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Projet 1</h3>
-                        <p>Description du projet...</p>
-                        <div class="portfolio-links">
-                            <a href="#" class="btn btn-small">Voir le projet</a>
-                        </div>
-                    </div>
+            <p class="portfolio-description">Découvrez mes projets organisés par catégories</p>
+            
+            <!-- Portfolio Filters -->
+            <div class="portfolio-filters">
+                <button class="filter active" data-filter="all">
+                    <i class="fas fa-th"></i> Tous
+                    <span class="filter-count" id="count-all">0</span>
+                </button>
+                <button class="filter" data-filter="Université">
+                    <i class="fas fa-graduation-cap"></i> Université
+                    <span class="filter-count" id="count-universite">0</span>
+                </button>
+                <button class="filter" data-filter="Personnel">
+                    <i class="fas fa-user"></i> Personnel
+                    <span class="filter-count" id="count-personnel">0</span>
+                </button>
+                <button class="filter" data-filter="GameJam">
+                    <i class="fas fa-gamepad"></i> GameJam
+                    <span class="filter-count" id="count-gamejam">0</span>
+                </button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="portfolio-grid" id="portfolio-grid">
+                <!-- Les projets seront chargés dynamiquement via JavaScript -->
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Chargement des projets...</p>
                 </div>
-                <!-- Ajoutez d'autres projets ici -->
             </div>
         </div>
     </section>
@@ -146,5 +161,6 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/portfolio.js"></script>
 </body>
 </html>
