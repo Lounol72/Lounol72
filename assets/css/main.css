@@ -1,5 +1,19 @@
 /* Portfolio Louis Subtil - CSS Principal */
 
+/* Import des modules CSS */
+@import url('01-variables.css');
+@import url('02-reset.css');
+@import url('03-layout.css');
+@import url('04-components.css');
+@import url('05-navigation.css');
+@import url('06-sections.css');
+@import url('07-portfolio.css');
+@import url('08-github.css');
+@import url('08-github-integration.css');
+@import url('09-footer.css');
+@import url('10-responsive.css');
+@import url('11-utilities.css');
+
 /* Reset et base */
 * {
   margin: 0;
@@ -214,44 +228,7 @@ section h2 {
   color: #3498db;
 }
 
-/* Portfolio Section */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.portfolio-item {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.portfolio-item:hover {
-  transform: translateY(-5px);
-}
-
-.portfolio-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.portfolio-content {
-  padding: 1.5rem;
-}
-
-.portfolio-content h3 {
-  margin-bottom: 1rem;
-  color: #2c3e50;
-}
-
-.portfolio-content p {
-  color: #666;
-  margin-bottom: 1rem;
-}
+/* Portfolio styles are now in 07-portfolio.css */
 
 /* Contact Section */
 .contact {

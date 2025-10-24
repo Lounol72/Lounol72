@@ -62,7 +62,7 @@ Le site est entièrement personnalisable :
 ## 📧 Contact
 
 - **Email** : louis.subtil@etu.univ-lemans.fr
-- **GitHub** : [louno172](https://github.com/louno172)
+- **GitHub** : [lounol72](https://github.com/lounol72)
 - **Localisation** : Le Mans, France
 
 ## 📄 Licence

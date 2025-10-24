@@ -27,12 +27,15 @@ jobs:
         npm init -y
         npm install axios
     
-    - name: Fetch GitHub data
+    - name: Update GitHub stats
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_USERNAME: louno172  # Remplacez par votre nom d'utilisateur GitHub
+        USERNAME: Lounol72
       run: |
-        node scripts/fetch-github-data.js
+        node .github/scripts/fetch-github-stats.js
+    
+    - name: Generate portfolio
+      run: |
+        node .github/scripts/generate-portfolio.js
     
     - name: Commit and push changes
       run: |
