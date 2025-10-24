@@ -1,33 +1,59 @@
----
-layout: default
-title: "Accueil"
-description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Université du Mans"
----
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Subtil | Portfolio</title>
+    <meta name="description" content="Portfolio de Louis Subtil - Étudiant en Informatique à l'Université du Mans">
+    <meta name="keywords" content="Louis Subtil, Informatique, portfolio, étudiant, Université du Mans">
+    <meta name="author" content="Louis Subtil">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">Louis Subtil</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Accueil</a>
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<div id="root">
-    <!-- Section Hero -->
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Louis Subtil</h1>
-                <p class="hero-subtitle">Étudiant en Informatique</p>
-                <p class="hero-description">Passionné par le développement web et les nouvelles technologies</p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">Découvrir</a>
-                    <a href="#contact" class="btn btn-secondary">Contact</a>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Louis Subtil</h1>
+            <p class="hero-subtitle">Étudiant en Informatique</p>
+            <p class="hero-description">Université du Mans, Le Mans, France</p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">Voir mon travail</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
             </div>
         </div>
     </section>
 
-    <!-- Section À propos -->
-    <section id="about" class="about-section">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
+            <h2>À propos de moi</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Étudiant en Informatique à l'{{ site.university }}, je me passionne pour le développement web et les technologies modernes.</p>
-                    <p>Mon objectif est de devenir un développeur full-stack compétent, capable de créer des applications web innovantes et performantes.</p>
+                    <p>Je suis étudiant en Informatique à l'Université du Mans, passionné par le développement web et les nouvelles technologies.</p>
+                    <p>Mon objectif est de devenir développeur full-stack et de contribuer à des projets innovants.</p>
                 </div>
                 <div class="about-skills">
                     <h3>Compétences</h3>
@@ -45,8 +71,8 @@ description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Univers
                             <span>JavaScript</span>
                         </div>
                         <div class="skill-item">
-                            <i class="fab fa-react"></i>
-                            <span>React</span>
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
                         </div>
                     </div>
                 </div>
@@ -54,58 +80,71 @@ description: "Portfolio de Louis Subtil - Étudiant en Informatique à l'Univers
         </div>
     </section>
 
-    <!-- Section Portfolio -->
-    <section id="portfolio" class="portfolio-section">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
         <div class="container">
-            <h2 class="section-title">Mes Projets</h2>
+            <h2>Portfolio</h2>
             <div class="portfolio-grid">
-                <!-- Les projets seront chargés dynamiquement -->
-                <div class="project-card">
-                     <div class="project-image">
-                         <img src="{{ '/assets/images/hqdefault.jpeg' | relative_url }}" alt="Projet 1">
-                     </div>
-                    <div class="project-content">
-                        <h3>Projet Portfolio</h3>
-                        <p>Développement de ce portfolio avec Jekyll et GitHub Pages</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Jekyll</span>
-                            <span class="tech-tag">GitHub Pages</span>
-                            <span class="tech-tag">CSS3</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/{{ site.github_username }}/Louno172" class="btn btn-outline">
-                                <i class="fab fa-github"></i> Code
-                            </a>
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/images/hqdefault.jpeg" alt="Projet 1">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Projet 1</h3>
+                        <p>Description du projet...</p>
+                        <div class="portfolio-links">
+                            <a href="#" class="btn btn-small">Voir le projet</a>
                         </div>
                     </div>
                 </div>
+                <!-- Ajoutez d'autres projets ici -->
             </div>
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section id="contact" class="contact-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Contact</h2>
+            <h2>Contact</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>{{ site.email }}</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/{{ site.github_username }}">GitHub</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-university"></i>
-                        <span>{{ site.university }}</span>
-                    </div>
+                    <h3>Informations de contact</h3>
+                    <p><i class="fas fa-envelope"></i> louis.subtil@etu.univ-lemans.fr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Le Mans, France</p>
+                    <p><i class="fas fa-university"></i> Université du Mans</p>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
-</div>
 
-<!-- Scripts -->
-<script src="{{ '/assets/js/portfolio.js' | relative_url }}"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Louis Subtil. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="https://github.com/louno172" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:louis.subtil@etu.univ-lemans.fr"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
