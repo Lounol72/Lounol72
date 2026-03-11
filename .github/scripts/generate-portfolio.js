@@ -33,10 +33,16 @@ const CATEGORIES = {
 
 // Projets à exclure
 const EXCLUDED_PROJECTS = [
-  'louno172', // Repository principal
+  'Lounol72', // Repository principal
   '.github', // Configuration GitHub
   'README', // Fichiers README
   'LICENSE' // Fichiers de licence
+];
+
+// Projets universitaires (catégorie forcée par nom)
+const UNIVERSITY_PROJECTS = [
+  'icpocket',
+  'skybeat'
 ];
 
 // Couleurs des langages
@@ -88,6 +94,11 @@ function categorizeProject(repo) {
   const name = repo.n.toLowerCase();
   const description = (repo.d || '').toLowerCase();
   const topics = repo.topics || [];
+
+  // Projets universitaires explicites (priorité)
+  if (UNIVERSITY_PROJECTS.some(proj => name.includes(proj))) {
+    return 'Université';
+  }
   
   // Vérifier les topics
   for (const topic of topics) {

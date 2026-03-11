@@ -143,3 +143,5 @@ Thumbs.db
 # Test files
 data/test-*.json
 test-results/
+
+Claude.md

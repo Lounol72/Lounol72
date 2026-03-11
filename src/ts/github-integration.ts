@@ -2,38 +2,42 @@
  * GitHub Integration - Affiche uniquement les statistiques GitHub
  * Les projets du portfolio sont gérés par portfolio.ts
  */
+
+import type { GitHubData } from '../types/portfolio';
+
 class GitHubIntegration {
-    githubData = null;
-    async init() {
-        try {
-            this.showLoading();
-            await this.loadData();
-            this.renderGitHubStats();
-            this.hideLoading();
-        }
-        catch (error) {
-            console.error('Erreur lors de l\'initialisation GitHub:', error);
-            this.showError('Impossible de charger les données GitHub');
-        }
+  private githubData: GitHubData | null = null;
+
+  async init(): Promise<void> {
+    try {
+      this.showLoading();
+      await this.loadData();
+      this.renderGitHubStats();
+      this.hideLoading();
+    } catch (error) {
+      console.error('Erreur lors de l\'initialisation GitHub:', error);
+      this.showError('Impossible de charger les données GitHub');
     }
-    async loadData() {
-        try {
-            const githubResponse = await fetch('data/github.json');
-            if (githubResponse.ok) {
-                this.githubData = (await githubResponse.json());
-            }
-        }
-        catch {
-            console.log('ℹ️ Fichier github.json non disponible');
-        }
+  }
+
+  private async loadData(): Promise<void> {
+    try {
+      const githubResponse = await fetch('data/github.json');
+      if (githubResponse.ok) {
+        this.githubData = (await githubResponse.json()) as GitHubData;
+      }
+    } catch {
+      console.log('ℹ️ Fichier github.json non disponible');
     }
-    renderGitHubStats() {
-        const statsContainer = document.getElementById('github-stats');
-        if (!statsContainer)
-            return;
-        if (this.githubData?.stats) {
-            const stats = this.githubData.stats;
-            statsContainer.innerHTML = `
+  }
+
+  private renderGitHubStats(): void {
+    const statsContainer = document.getElementById('github-stats');
+    if (!statsContainer) return;
+
+    if (this.githubData?.stats) {
+      const stats = this.githubData.stats;
+      statsContainer.innerHTML = `
         <div class="github-stats-container">
           <div class="github-stats-header">
             <i class="fab fa-github github-stats-icon"></i>
@@ -55,9 +59,8 @@ class GitHubIntegration {
           </div>
         </div>
       `;
-        }
-        else {
-            statsContainer.innerHTML = `
+    } else {
+      statsContainer.innerHTML = `
         <div class="github-stats-container">
           <div class="github-stats-header">
             <i class="fab fa-github github-stats-icon"></i>
@@ -73,43 +76,46 @@ class GitHubIntegration {
           </div>
         </div>
       `;
-        }
     }
-    showLoading() {
-        const statsContainer = document.getElementById('github-stats');
-        if (statsContainer) {
-            statsContainer.innerHTML = `
+  }
+
+  private showLoading(): void {
+    const statsContainer = document.getElementById('github-stats');
+    if (statsContainer) {
+      statsContainer.innerHTML = `
         <div class="github-loading">
           <div class="github-loading-spinner"></div>
         </div>
       `;
-        }
     }
-    hideLoading() {
-        const statsContainer = document.getElementById('github-stats');
-        const loadingElement = statsContainer?.querySelector('.github-loading');
-        if (loadingElement)
-            loadingElement.remove();
-    }
-    showError(message) {
-        const statsContainer = document.getElementById('github-stats');
-        if (statsContainer) {
-            statsContainer.innerHTML = `
+  }
+
+  private hideLoading(): void {
+    const statsContainer = document.getElementById('github-stats');
+    const loadingElement = statsContainer?.querySelector('.github-loading');
+    if (loadingElement) loadingElement.remove();
+  }
+
+  private showError(message: string): void {
+    const statsContainer = document.getElementById('github-stats');
+    if (statsContainer) {
+      statsContainer.innerHTML = `
         <div class="github-empty">
           <i class="fas fa-exclamation-triangle"></i>
           <h3>Erreur de chargement</h3>
           <p>${message}</p>
         </div>
       `;
-        }
     }
-    async refresh() {
-        await this.init();
-    }
+  }
+
+  async refresh(): Promise<void> {
+    await this.init();
+  }
 }
+
 document.addEventListener('DOMContentLoaded', () => {
-    const githubIntegration = new GitHubIntegration();
-    githubIntegration.init();
-    window.githubIntegration = githubIntegration;
+  const githubIntegration = new GitHubIntegration();
+  githubIntegration.init();
+  (window as Window & { githubIntegration?: GitHubIntegration }).githubIntegration = githubIntegration;
 });
-export {};

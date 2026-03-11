@@ -1,39 +1,292 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": "github-SkyBeat",
+      "title": "SkyBeat",
+      "description": "Aucune description disponible",
+      "category": "Université",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMzMTc4QzYiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMzE3OEM2IiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMxNzhDNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlR5cGVTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "TypeScript"
+      ],
+      "github": "https://github.com/Lounol72/SkyBeat",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-03-09",
+      "status": "active",
+      "year": 2026,
+      "topics": [],
+      "language": "TypeScript",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-JaiCCv1",
+      "title": "JaiCCv1",
+      "description": "In this fork of gcc is going to parse the number of errors and display memes for a threshold of errors.",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNGN0RGMUUiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRjdERjFFIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0Y3REYxRSIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmFTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "JavaScript"
+      ],
+      "github": "https://github.com/Lounol72/JaiCCv1",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-03-05",
+      "status": "active",
+      "year": 2026,
+      "topics": [],
+      "language": "JavaScript",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-ChessBot",
+      "title": "ChessBot",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "Java"
+      ],
+      "github": "https://github.com/Lounol72/ChessBot",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2025-12-04",
+      "status": "active",
+      "year": 2025,
+      "topics": [],
+      "language": "Java",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-ICPocket-java",
+      "title": "ICPocket Java",
+      "description": "Aucune description disponible",
+      "category": "Université",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "Java"
+      ],
+      "github": "https://github.com/Lounol72/ICPocket-java",
+      "demo": null,
+      "stars": 1,
+      "forks": 0,
+      "lastUpdated": "2025-11-02",
+      "status": "active",
+      "year": 2025,
+      "topics": [],
+      "language": "Java",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-ICPocket",
+      "title": "ICPocket",
+      "description": "ICPocket est un jeu \"Pokemon-like\" développé par des étudiants passionnés de cet univers. Nous venons de l'Université du Mans. Plongez dans un univers unique où la programmation rencontre l'aventure !",
+      "category": "Université",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiM2QjcyODAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjNkI3MjgwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgZm9udC13ZWlnaHQ9ImJvbGQiPkM8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "C"
+      ],
+      "github": "https://github.com/Lounol72/ICPocket",
+      "demo": null,
+      "stars": 1,
+      "forks": 0,
+      "lastUpdated": "2025-09-05",
+      "status": "active",
+      "year": 2025,
+      "topics": [
+        "c",
+        "pokemon",
+        "sdl2",
+        "sdl2-image"
+      ],
+      "language": "C",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-Projet_Cpp",
+      "title": "Projet_Cpp",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMwMDU5OUMiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMDA1OTlDIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwNTk5QyIgZm9udC13ZWlnaHQ9ImJvbGQiPkMrKzwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "technologies": [
+        "C++"
+      ],
+      "github": "https://github.com/Lounol72/Projet_Cpp",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2025-03-12",
+      "status": "active",
+      "year": 2025,
+      "topics": [],
+      "language": "C++",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-Shooter2D",
+      "title": "Shooter2D",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMzNzc2QUIiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMzc3NkFCIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzM3NzZBQiIgZm9udC13ZWlnaHQ9ImJvbGQiPlB5dGhvbjwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "technologies": [
+        "Python"
+      ],
+      "github": "https://github.com/Lounol72/Shooter2D",
+      "demo": null,
+      "stars": 1,
+      "forks": 0,
+      "lastUpdated": "2025-01-28",
+      "status": "active",
+      "year": 2025,
+      "topics": [],
+      "language": "Python",
+      "archived": false,
+      "fork": false
+    }
+  ],
   "categories": {
     "Université": {
+      "topics": [
+        "university",
+        "université",
+        "school",
+        "école",
+        "student",
+        "étudiant",
+        "academic",
+        "académique",
+        "course",
+        "cours",
+        "assignment",
+        "devoir",
+        "project",
+        "projet",
+        "tp",
+        "td",
+        "exam",
+        "examen",
+        "l3",
+        "m1",
+        "m2"
+      ],
+      "keywords": [
+        "université",
+        "university",
+        "school",
+        "student",
+        "academic",
+        "course",
+        "assignment",
+        "project",
+        "tp",
+        "td",
+        "exam"
+      ],
       "description": "Projets réalisés dans le cadre de mes études à l'Université du Mans",
       "icon": "fas fa-graduation-cap",
       "color": "#4A90E2"
     },
-    "Personnel": {
-      "description": "Projets personnels et expérimentations",
-      "icon": "fas fa-user",
-      "color": "#7ED321"
-    },
     "GameJam": {
+      "topics": [
+        "gamejam",
+        "game-jam",
+        "ludum",
+        "dare",
+        "itch",
+        "game",
+        "jeu",
+        "jam",
+        "48h",
+        "72h",
+        "weekend",
+        "week-end",
+        "global-game-jam",
+        "ludum-dare",
+        "itch-io",
+        "game-development"
+      ],
+      "keywords": [
+        "gamejam",
+        "game-jam",
+        "ludum",
+        "dare",
+        "itch",
+        "game",
+        "jam",
+        "48h",
+        "72h",
+        "weekend",
+        "week-end"
+      ],
       "description": "Jeux développés lors d'événements GameJam",
       "icon": "fas fa-gamepad",
       "color": "#F5A623"
+    },
+    "Personnel": {
+      "topics": [
+        "personal",
+        "personnel",
+        "portfolio",
+        "website",
+        "site",
+        "blog",
+        "tool",
+        "outil",
+        "utility",
+        "utilitaire",
+        "script",
+        "automation",
+        "side-project",
+        "hobby",
+        "learning",
+        "experiment"
+      ],
+      "keywords": [
+        "personal",
+        "personnel",
+        "portfolio",
+        "website",
+        "site",
+        "tool",
+        "outil",
+        "utility",
+        "script",
+        "automation"
+      ],
+      "description": "Projets personnels et expérimentations",
+      "icon": "fas fa-user",
+      "color": "#7ED321"
     }
   },
   "stats": {
-    "totalProjects": 0,
-    "byCategory": {},
-    "totalStars": 0,
+    "totalProjects": 7,
+    "byCategory": {
+      "Université": 3,
+      "Personnel": 4
+    },
+    "totalStars": 3,
     "totalForks": 0,
-    "lastUpdated": "2024-01-01",
+    "lastUpdated": "2026-03-11",
     "userStats": {
-      "totalRepos": 0,
-      "totalStars": 0,
-      "followers": 0,
+      "totalRepos": 9,
+      "totalStars": 3,
+      "followers": 4,
       "following": 0
     }
   },
   "metadata": {
-    "generatedAt": "2024-01-01T00:00:00.000Z",
-    "generatedBy": "Initial Setup",
-    "source": "Manual",
-    "username": "louno172"
+    "generatedAt": "2026-03-11T17:05:22.315Z",
+    "generatedBy": "GitHub Scripts",
+    "source": "GitHub API",
+    "username": "Lounol72"
   }
 }

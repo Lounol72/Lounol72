@@ -2,40 +2,58 @@
    GITHUB INTEGRATION - COMPATIBLE AVEC SCRIPTS EXISTANTS
    ======================================== */
 
-/* === GITHUB STATS DISPLAY === */
+/* === GITHUB STATS DISPLAY - Liquid Glass === */
 .github-stats-container {
-  background: var(--bg-surface);
-  border: var(--border-width-1) solid var(--border-primary);
-  border-radius: var(--border-radius-2xl);
+  border-radius: var(--border-radius-xl);
   padding: var(--space-8);
   margin: var(--space-8) 0;
-  box-shadow: var(--shadow-lg);
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
-.github-stats-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(198, 178, 171, 0.05) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  pointer-events: none;
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .github-stats-container {
+    background: var(--lg-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: var(--lg-border);
+    box-shadow: var(--lg-shadow);
+  }
+
+  .github-stats-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    opacity: 0.45;
+    z-index: 0;
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .github-stats-container {
+    background: rgba(49, 50, 68, 0.9);
+    border: 1px solid rgba(203, 166, 247, 0.2);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .github-stats-container:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--border-accent);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
 }
 
-.github-stats-container:hover::before {
-  opacity: 1;
+.github-stats-header,
+.github-stats-grid {
+  position: relative;
+  z-index: 1;
 }
 
 .github-stats-header {
@@ -43,39 +61,33 @@
   align-items: center;
   gap: var(--space-3);
   margin-bottom: var(--space-6);
-  position: relative;
-  z-index: 2;
 }
 
 .github-stats-icon {
   width: 32px;
   height: 32px;
-  color: var(--primary-400);
+  color: var(--color-primary);
 }
 
 .github-stats-title {
   font-size: var(--text-xl);
   font-weight: var(--font-semibold);
-  color: var(--text-primary);
+  color: var(--color-heading);
 }
 
 .github-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: var(--space-4);
-  position: relative;
-  z-index: 2;
 }
 
 .github-stat-card {
   text-align: center;
   padding: var(--space-6);
   background: var(--bg-surface);
-  border: var(--border-width-1) solid var(--border-primary);
-  border-radius: var(--border-radius-xl);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-lg);
   transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
 }
 
 .github-stat-card::before {
@@ -104,7 +116,7 @@
 .github-stat-number {
   font-size: var(--text-3xl);
   font-weight: var(--font-bold);
-  color: var(--primary-400);
+  color: var(--color-primary);
   display: block;
   margin-bottom: var(--space-2);
   position: relative;
@@ -113,7 +125,7 @@
 
 .github-stat-label {
   font-size: var(--text-sm);
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
   font-weight: var(--font-medium);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -435,7 +447,7 @@
 .github-empty {
   text-align: center;
   padding: var(--space-16);
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
   position: relative;
   z-index: 2;
 }
@@ -443,17 +455,17 @@
 .github-empty i {
   font-size: var(--text-4xl);
   margin-bottom: var(--space-4);
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 .github-empty h3 {
   font-size: var(--text-xl);
   margin-bottom: var(--space-2);
-  color: var(--text-secondary);
+  color: var(--color-heading);
 }
 
 .github-empty p {
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 /* === RESPONSIVE DESIGN === */
