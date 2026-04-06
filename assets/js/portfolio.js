@@ -63,9 +63,26 @@ function displayProjects(projects) {
         portfolioGrid.innerHTML = '<div class="no-projects">Aucun projet trouvé</div>';
         return;
     }
-    portfolioGrid.innerHTML = projects.map((project) => generateProjectCard(project)).join('');
+    portfolioGrid.innerHTML = projects.map((project, index) => generateProjectCard(project, index)).join('');
     animateProjectCards();
 }
+const LANG_COLORS = {
+    'TypeScript': '#3178C6',
+    'JavaScript': '#F7DF1E',
+    'Java': '#ED8B00',
+    'C': '#A8B9CC',
+    'C++': '#00599C',
+    'C#': '#239120',
+    'Python': '#3776AB',
+    'CSS': '#1572B6',
+    'HTML': '#E34F26',
+    'Rust': '#CE422B',
+    'Go': '#00ADD8',
+    'Ruby': '#CC342D',
+    'PHP': '#777BB4',
+    'Swift': '#FA7343',
+    'Kotlin': '#7F52FF',
+};
 function getCategoryClass(category) {
     const map = {
         'Université': 'category--universite',
@@ -74,62 +91,50 @@ function getCategoryClass(category) {
     };
     return map[category] ?? 'category--personnel';
 }
-function generateProjectCard(project) {
+function generateProjectCard(project, index) {
     const categoryInfo = portfolioData?.categories?.[project.category];
     const categoryIcon = categoryInfo?.icon ?? 'fas fa-folder';
     const categoryClass = getCategoryClass(project.category);
+    const langColor = LANG_COLORS[project.language] ?? '#cba6f7';
+    const indexNum = String((index ?? 0) + 1).padStart(2, '0');
     const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        const options = { year: 'numeric', month: 'short' };
         return new Date(dateString).toLocaleDateString('fr-FR', options);
     };
-    const techBadges = project.technologies
-        .map((tech) => `<span class="tech-tag">${tech}</span>`)
-        .join('');
-    const categoryBadge = `
-    <span class="portfolio-category ${categoryClass}">
-      <i class="${categoryIcon}"></i> ${project.category}
-    </span>
-  `;
-    const languageBadge = project.language
-        ? `<span class="language-badge"><i class="fas fa-code"></i> ${project.language}</span>`
-        : '';
-    const actionButtons = `
-    <div class="portfolio-actions">
-      <a href="${project.github}" target="_blank" class="portfolio-action" rel="noopener">
-        <i class="fab fa-github"></i> Code
-      </a>
-      ${project.demo ? `
-        <a href="${project.demo}" target="_blank" class="portfolio-action" rel="noopener">
-          <i class="fas fa-external-link-alt"></i> Démo
-        </a>
-      ` : ''}
-    </div>
-  `;
     return `
-    <div class="portfolio-item" data-category="${project.category}" data-id="${project.id}">
-      <div class="portfolio-image">
-        <img src="${project.image}" alt="${project.title}" loading="lazy"
-             onerror="this.src='assets/images/placeholder-project.jpg'">
-        <div class="portfolio-overlay">
-          <a href="${project.github}" target="_blank" rel="noopener" class="portfolio-overlay-link" aria-label="Voir le code de ${project.title}">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
+    <div class="portfolio-item" data-category="${project.category}" data-id="${project.id}" style="--lang-color: ${langColor}">
+      <div class="portfolio-card-accent"></div>
+      <div class="portfolio-card-content">
+        <div class="portfolio-card-top">
+          <div class="portfolio-lang-indicator">
+            <span class="lang-dot"></span>
+            <span>${project.language ?? 'Code'}</span>
+          </div>
+          <span class="portfolio-category ${categoryClass}">
+            <i class="${categoryIcon}" aria-hidden="true"></i> ${project.category}
+          </span>
         </div>
-      </div>
-      <div class="portfolio-info">
-        ${categoryBadge}
-        <h3 class="portfolio-title">${project.title}</h3>
-        <p class="portfolio-description-text">${project.description}</p>
-        <div class="portfolio-meta">
-          <span><i class="fas fa-star"></i> ${project.stars}</span>
-          <span><i class="fas fa-code-branch"></i> ${project.forks}</span>
-          <span><i class="fas fa-calendar"></i> ${formatDate(project.lastUpdated)}</span>
+        <div class="portfolio-card-body">
+          <div class="portfolio-index-num">${indexNum}</div>
+          <h3 class="portfolio-title">${project.title}</h3>
+          <p class="portfolio-description-text">${project.description}</p>
         </div>
-        <div class="portfolio-technologies">
-          ${techBadges}
-          ${languageBadge}
+        <div class="portfolio-card-footer">
+          <div class="portfolio-meta">
+            <span><i class="fas fa-star" aria-hidden="true"></i> ${project.stars}</span>
+            <span><i class="fas fa-code-branch" aria-hidden="true"></i> ${project.forks}</span>
+            <span><i class="fas fa-clock" aria-hidden="true"></i> ${formatDate(project.lastUpdated)}</span>
+          </div>
+          <div class="portfolio-actions">
+            <a href="${project.github}" target="_blank" class="portfolio-action" rel="noopener noreferrer" aria-label="Voir le code de ${project.title} sur GitHub">
+              <i class="fab fa-github" aria-hidden="true"></i> Code
+            </a>
+            ${project.demo ? `
+            <a href="${project.demo}" target="_blank" class="portfolio-action portfolio-action--demo" rel="noopener noreferrer" aria-label="Voir la démo de ${project.title}">
+              <i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo
+            </a>` : ''}
+          </div>
         </div>
-        ${actionButtons}
       </div>
     </div>
   `;
@@ -162,34 +167,19 @@ function animateProjectCards() {
     const cards = document.querySelectorAll('.portfolio-item');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        card.style.transform = 'translateY(24px)';
+        card.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
         setTimeout(() => {
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
-        }, index * 100);
+        }, index * 80);
     });
 }
 function showLoadingState() {
     const portfolioGrid = document.getElementById('portfolio-grid');
     if (!portfolioGrid)
         return;
-    const skeletonCards = Array.from({ length: 6 }, () => `
-    <div class="skeleton-card">
-      <div class="skeleton-image"></div>
-      <div class="skeleton-body">
-        <div class="skeleton-line skeleton-line--badge"></div>
-        <div class="skeleton-line skeleton-line--title"></div>
-        <div class="skeleton-line skeleton-line--text"></div>
-        <div class="skeleton-line skeleton-line--text-short"></div>
-        <div class="skeleton-tags">
-          <div class="skeleton-tag"></div>
-          <div class="skeleton-tag"></div>
-          <div class="skeleton-tag"></div>
-        </div>
-      </div>
-    </div>
-  `).join('');
+    const skeletonCards = Array.from({ length: 6 }, () => `<div class="skeleton-card"></div>`).join('');
     portfolioGrid.innerHTML = `<div class="skeleton-grid">${skeletonCards}</div>`;
 }
 function hideLoadingState() {

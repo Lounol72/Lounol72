@@ -3,9 +3,9 @@
     {
       "id": "github-SkyBeat",
       "title": "SkyBeat",
-      "description": "Aucune description disponible",
+      "description": "Application de visualisation musicale avec analyse de spectre audio en temps réel, développée en TypeScript.",
       "category": "Université",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMzMTc4QzYiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMzE3OEM2IiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMxNzhDNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlR5cGVTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "image": "",
       "technologies": [
         "TypeScript"
       ],
@@ -24,9 +24,9 @@
     {
       "id": "github-JaiCCv1",
       "title": "JaiCCv1",
-      "description": "In this fork of gcc is going to parse the number of errors and display memes for a threshold of errors.",
+      "description": "Fork de GCC qui compte les erreurs de compilation et affiche des mèmes au-delà d'un seuil — pour rendre le débogage un peu moins douloureux.",
       "category": "Personnel",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNGN0RGMUUiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRjdERjFFIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0Y3REYxRSIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmFTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "image": "",
       "technologies": [
         "JavaScript"
       ],
@@ -45,9 +45,9 @@
     {
       "id": "github-ChessBot",
       "title": "ChessBot",
-      "description": "Aucune description disponible",
+      "description": "Bot d'échecs en Java implémentant l'algorithme Minimax avec élagage alpha-bêta. Profondeur de recherche configurable.",
       "category": "Personnel",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "image": "",
       "technologies": [
         "Java"
       ],
@@ -66,9 +66,9 @@
     {
       "id": "github-ICPocket-java",
       "title": "ICPocket Java",
-      "description": "Aucune description disponible",
+      "description": "Portage Java du projet ICPocket avec interface JavaFX améliorée. Version académique du jeu Pokémon-like de l'Université du Mans.",
       "category": "Université",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "image": "",
       "technologies": [
         "Java"
       ],
@@ -87,9 +87,9 @@
     {
       "id": "github-ICPocket",
       "title": "ICPocket",
-      "description": "ICPocket est un jeu \"Pokemon-like\" développé par des étudiants passionnés de cet univers. Nous venons de l'Université du Mans. Plongez dans un univers unique où la programmation rencontre l'aventure !",
+      "description": "Jeu type \"Pokémon\" développé en C avec SDL2 dans le cadre de l'Université du Mans. Capture et combat de créatures dans un univers original.",
       "category": "Université",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiM2QjcyODAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjNkI3MjgwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgZm9udC13ZWlnaHQ9ImJvbGQiPkM8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "image": "",
       "technologies": [
         "C"
       ],
@@ -113,9 +113,9 @@
     {
       "id": "github-Projet_Cpp",
       "title": "Projet_Cpp",
-      "description": "Aucune description disponible",
+      "description": "Exploration des concepts avancés du C++ : programmation orientée objet, templates, et STL.",
       "category": "Personnel",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMwMDU5OUMiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMDA1OTlDIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwNTk5QyIgZm9udC13ZWlnaHQ9ImJvbGQiPkMrKzwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "image": "",
       "technologies": [
         "C++"
       ],
@@ -134,9 +134,9 @@
     {
       "id": "github-Shooter2D",
       "title": "Shooter2D",
-      "description": "Aucune description disponible",
+      "description": "Jeu de tir 2D développé avec Pygame. Système de vagues d'ennemis progressives et gestion des scores.",
       "category": "Personnel",
-      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMzNzc2QUIiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMzc3NkFCIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzM3NzZBQiIgZm9udC13ZWlnaHQ9ImJvbGQiPlB5dGhvbjwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "image": "",
       "technologies": [
         "Python"
       ],

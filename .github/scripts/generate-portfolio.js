@@ -31,6 +31,16 @@ const CATEGORIES = {
   }
 };
 
+// Descriptions personnalisées pour les projets sans description GitHub
+const CUSTOM_DESCRIPTIONS = {
+  'SkyBeat': 'Application de visualisation musicale avec analyse de spectre audio en temps réel, développée en TypeScript.',
+  'JaiCCv1': 'Fork de GCC qui compte les erreurs de compilation et affiche des mèmes au-delà d\'un seuil — pour rendre le débogage un peu moins douloureux.',
+  'ChessBot': 'Bot d\'échecs en Java implémentant l\'algorithme Minimax avec élagage alpha-bêta. Profondeur de recherche configurable.',
+  'ICPocket-java': 'Portage Java du projet ICPocket avec une interface JavaFX améliorée. Version académique du jeu Pokémon-like.',
+  'Projet_Cpp': 'Exploration des concepts avancés du C++ : programmation orientée objet, templates, et STL.',
+  'Shooter2D': 'Jeu de tir 2D développé avec Pygame. Système de vagues d\'ennemis progressives et gestion des scores.',
+};
+
 // Projets à exclure
 const EXCLUDED_PROJECTS = [
   'Lounol72', // Repository principal
@@ -153,7 +163,7 @@ function transformRepositoryToProject(repo) {
   return {
     id: `github-${repo.n}`,
     title: repo.n.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-    description: repo.d || 'Aucune description disponible',
+    description: CUSTOM_DESCRIPTIONS[repo.n] || repo.d || 'Aucune description disponible',
     category: category,
     image: generateLanguagePlaceholder(repo.l),
     technologies: repo.l ? [repo.l] : [],
