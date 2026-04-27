@@ -1,25 +1,27 @@
 <div align="center">
 
-# Salut, moi c'est Louis 👋
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1b27,100:414868&height=130&section=header&text=Louis+Subtil&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=62" width="100%"/>
 
-**Développeur web étudiant · Le Mans, France**
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=15&duration=2500&pause=700&color=7AA2F7&center=true&vCenter=true&width=500&lines=%C3%89tudiant+en+informatique+%C2%B7+Le+Mans%2C+France;D%C3%A9veloppeur+web+%26+moteurs+de+jeu;Neovim+addict+%C2%B7+3+configs" alt="Typing SVG"/>
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-lounol72.github.io-4f46e5?style=for-the-badge&logo=github)](https://lounol72.github.io/Lounol72/)
-[![Email](https://img.shields.io/badge/Email-contact-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:louis.subtil@icloud.com)
+<br/>
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-lounol72.github.io-7aa2f7?style=for-the-badge&logo=github&logoColor=white&labelColor=1a1b27)](https://lounol72.github.io/Lounol72/)
+[![Email](https://img.shields.io/badge/Email-contact-f7768e?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1a1b27)](mailto:louis.subtil@icloud.com)
 
 </div>
 
----
+<br/>
 
 ## À propos
 
-Étudiant en informatique à l'Université du Mans, passionné par le développement web et la création de projets game jam. J'aime construire des choses propres, accessibles et qui marchent vraiment.
+Étudiant en informatique à l'Université du Mans, passionné par le développement web et les moteurs de jeu. J'aime construire des choses propres, accessibles et qui marchent vraiment.
 
-- Actuellement à la fac du Mans en informatique
-- Je travaille sur mon portfolio et divers projets perso
+- Université du Mans, informatique
 - Toujours partant pour une game jam
+- Neovim power user — 3 configs actives
 
----
+<br/>
 
 ## Stack
 
@@ -27,35 +29,23 @@
 
 **Web**
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+[![Web](https://skillicons.dev/icons?i=html,css,js,ts&theme=dark)](https://skillicons.dev)
 
 **Langages**
 
-![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Haskell](https://img.shields.io/badge/Haskell-5D4F85?style=flat-square&logo=haskell&logoColor=white)
+[![Langages](https://skillicons.dev/icons?i=c,cpp,cs,java,py,haskell&theme=dark)](https://skillicons.dev)
 
-**Moteurs & IA**
+**Moteurs & Graphisme**
 
-![Unity](https://img.shields.io/badge/Unity-FFFFFF?style=flat-square&logo=unity&logoColor=black)
-![Unreal Engine](https://img.shields.io/badge/Unreal_Engine-0E1128?style=flat-square&logo=unrealengine&logoColor=white)
-![Machine Learning](https://img.shields.io/badge/Machine_Learning-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
+[![Moteurs](https://skillicons.dev/icons?i=unity,unreal,vulkan,pytorch&theme=dark)](https://skillicons.dev)
 
 **Outils**
 
-![Neovim](https://img.shields.io/badge/Neovim-57A143?style=flat-square&logo=neovim&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
-![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
+[![Outils](https://skillicons.dev/icons?i=neovim,github,githubactions&theme=dark)](https://skillicons.dev)
 
 </div>
 
----
+<br/>
 
 ## Statistiques GitHub
 
@@ -64,18 +54,20 @@
 ![Stats](https://github-readme-stats.vercel.app/api?username=Lounol72&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
 ![Langages](https://github-readme-stats.vercel.app/api/top-langs/?username=Lounol72&layout=compact&theme=tokyonight&hide_border=true)
 
+<br/>
+
+![Streak](https://streak-stats.demolab.com/?user=Lounol72&theme=tokyonight&hide_border=true)
+
 </div>
 
----
+<br/>
 
 ## Portfolio
 
-Mon portfolio est disponible sur **[lounol72.github.io/Lounol72](https://lounol72.github.io/Lounol72/)** — il regroupe mes projets universitaires, personnels et de game jam, mis à jour automatiquement depuis l'API GitHub.
+Mon portfolio regroupe mes projets universitaires, personnels et de game jam, mis à jour automatiquement depuis l'API GitHub.
 
----
+**[lounol72.github.io/Lounol72](https://lounol72.github.io/Lounol72/)**
 
 <div align="center">
-
-*Le Mans, France · 2025*
-
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:414868,100:1a1b27&height=80&section=footer" width="100%"/>
 </div>
