@@ -15,10 +15,12 @@
 
 ## À propos
 
-Étudiant en informatique à l'Université du Mans, passionné par le développement web et les moteurs de jeu. J'aime construire des choses propres, accessibles et qui marchent vraiment.
+Étudiant en 3e année à l'Université du Mans. Je construis des moteurs de rendu, des jeux, et des apps web — rarement l'un sans l'autre.
 
-- Université du Mans, informatique
-- Toujours partant pour une game jam
+- Moteur Vulkan avec PBR, shadow mapping et frustum culling
+- Jeux développés en C/SDL2, C++/SDL3, Java et Unity
+- Apps web Angular et Next.js, portfolio auto-synchronisé depuis l'API GitHub
+- Éditeur de texte modal en C avec keybindings Vim — parce que pourquoi pas
 - Neovim power user — 3 configs actives
 
 <br/>
