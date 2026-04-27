@@ -1,128 +1,81 @@
-# Louis Subtil - Portfolio Développeur
+<div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub-Pages-222?logo=github)](https://lounol72.github.io/Lounol72/)
-[![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENSE)
+# Salut, moi c'est Louis 👋
 
-Portfolio professionnel développé en HTML, CSS et JavaScript vanilla. Site statique hébergé sur GitHub Pages avec mise à jour automatique des projets depuis l'API GitHub.
+**Développeur web étudiant · Le Mans, France**
 
-## Aperçu
+[![Portfolio](https://img.shields.io/badge/Portfolio-lounol72.github.io-4f46e5?style=for-the-badge&logo=github)](https://lounol72.github.io/Lounol72/)
+[![Email](https://img.shields.io/badge/Email-contact-ea4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:louis.subtil@icloud.com)
 
-- **Démo live** : [https://lounol72.github.io/Lounol72/](https://lounol72.github.io/Lounol72/)
+</div>
 
+---
 
-## Stack technique
+## À propos
 
-| Technologie | Usage |
-|-------------|-------|
-| HTML5 | Structure sémantique, accessibilité |
-| CSS3 | Variables CSS, design responsive, animations |
-| TypeScript | Interactions, chargement dynamique du portfolio (compilé en JS) |
-| GitHub Pages | Hébergement statique |
-| GitHub Actions | Déploiement automatique, mise à jour hebdomadaire des données |
-| Formspree | Formulaire de contact sans backend |
+Étudiant en informatique à l'Université du Mans, passionné par le développement web et la création de projets game jam. J'aime construire des choses propres, accessibles et qui marchent vraiment.
 
-## Fonctionnalités
+- Actuellement à la fac du Mans en informatique
+- Je travaille sur mon portfolio et divers projets perso
+- Toujours partant pour une game jam
 
-- **Portfolio dynamique** : Projets chargés depuis `data/portfolio.json`, généré automatiquement depuis l'API GitHub
-- **Mise à jour automatique** : Workflow GitHub Actions exécuté chaque dimanche pour récupérer les derniers repos
-- **Filtrage par catégorie** : Université, Personnel, GameJam
-- **Statistiques GitHub** : Repositories, étoiles, followers affichés dynamiquement
-- **Design responsive** : Mobile-first, menu hamburger sur petits écrans
-- **Formulaire de contact** : Intégration Formspree opérationnelle
-- **SEO et accessibilité** : Meta Open Graph, Twitter Card, ARIA labels, navigation clavier
+---
 
-## Installation
+## Stack
 
-**Prérequis** : Node.js 18+
+<div align="center">
 
-```bash
-git clone https://github.com/Lounol72/Lounol72.git
-cd Lounol72
-npm install
-```
+**Web**
 
-## Scripts disponibles
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 
-| Commande | Description |
-|----------|-------------|
-| `npm run build` | Compile le TypeScript vers JavaScript |
-| `npm run build:watch` | Compilation en mode watch |
-| `npm run update-github-stats` | Récupère les statistiques et repos depuis l'API GitHub |
-| `npm run generate-portfolio` | Génère `data/portfolio.json` à partir de `data/github.json` |
-| `npm run update-portfolio` | Pipeline complet : stats + génération |
+**Langages**
 
-## Premier déploiement
+![C](https://img.shields.io/badge/C-00599C?style=flat-square&logo=c&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Haskell](https://img.shields.io/badge/Haskell-5D4F85?style=flat-square&logo=haskell&logoColor=white)
 
-Avant le premier déploiement, exécuter une fois les scripts pour peupler les données :
+**Moteurs & IA**
 
-```bash
-npm run build
-npm run update-portfolio
-git add data/ assets/js/
-git commit -m "Initialisation des données portfolio et build"
-git push
-```
+![Unity](https://img.shields.io/badge/Unity-FFFFFF?style=flat-square&logo=unity&logoColor=black)
+![Unreal Engine](https://img.shields.io/badge/Unreal_Engine-0E1128?style=flat-square&logo=unrealengine&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine_Learning-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
 
-## Structure du projet
+**Outils**
 
-```
-Lounol72/
-├── index.html              # Page d'accueil
-├── contact.html            # Page de contact
-├── 404.html                # Page d'erreur
-├── data/
-│   ├── portfolio.json      # Projets générés (par generate-portfolio.js)
-│   └── github.json         # Données brutes API (par fetch-github-stats.js)
-├── src/
-│   ├── ts/                 # Source TypeScript
-│   │   ├── main.ts
-│   │   ├── portfolio.ts
-│   │   └── github-integration.ts
-│   └── types/
-│       └── portfolio.d.ts  # Interfaces TypeScript
-├── assets/
-│   ├── css/                # Styles modulaires
-│   ├── js/                 # JavaScript compilé (généré par npm run build)
-│   └── images/
-├── .github/
-│   ├── workflows/          # Déploiement, mise à jour portfolio
-│   └── scripts/            # fetch-github-stats.js, generate-portfolio.js
-└── package.json
-```
+![Neovim](https://img.shields.io/badge/Neovim-57A143?style=flat-square&logo=neovim&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)
 
-## Développement local
+</div>
 
-Servir le site avec un serveur HTTP local (pour éviter les erreurs CORS sur `fetch` des JSON) :
+---
 
-```bash
-# Python
-python -m http.server 8000
+## Statistiques GitHub
 
-# Node.js
-npx serve .
+<div align="center">
 
-# PHP
-php -S localhost:8000
-```
+![Stats](https://github-readme-stats.vercel.app/api?username=Lounol72&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
+![Langages](https://github-readme-stats.vercel.app/api/top-langs/?username=Lounol72&layout=compact&theme=tokyonight&hide_border=true)
 
-Puis ouvrir [http://localhost:8000](http://localhost:8000).
+</div>
 
-## Déploiement
+---
 
-Le site se déploie automatiquement sur GitHub Pages à chaque push sur la branche `main` via le workflow `deploy-static.yml`. Aucune action manuelle requise.
+## Portfolio
 
-## Personnalisation
+Mon portfolio est disponible sur **[lounol72.github.io/Lounol72](https://lounol72.github.io/Lounol72/)** — il regroupe mes projets universitaires, personnels et de game jam, mis à jour automatiquement depuis l'API GitHub.
 
-- **Couleurs** : Variables dans `assets/css/01-variables.css` (--color-primary, --color-heading, etc.)
-- **Contenu** : Éditer `index.html` et `contact.html`
-- **Catégories** : Modifier `CATEGORIES` dans `.github/scripts/generate-portfolio.js`
+---
 
-## Contact
+<div align="center">
 
-- **Email** : louis.subtil@etu.univ-lemans.fr
-- **GitHub** : [Lounol72](https://github.com/Lounol72)
-- **Localisation** : Le Mans, France
+*Le Mans, France · 2025*
 
-## Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+</div>
