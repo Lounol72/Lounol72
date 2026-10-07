@@ -1,10 +1,16 @@
 name: Update Profile Cards
 
-# Régénère les cartes de statistiques du README de profil (profile/*.svg)
+# Régénère les cartes de statistiques du README de profil (profile/*.svg),
+# uniquement si le compte a commité depuis leur dernière mise à jour
 on:
   schedule:
-    - cron: '30 3 * * *'  # Chaque jour à 3h30 UTC
+    - cron: '30 3 * * *'  # Vérification chaque jour à 3h30 UTC
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Régénérer même sans nouveau commit'
+        type: boolean
+        default: false
 
 permissions:
   contents: write  # Nécessaire pour pousser profile/
@@ -20,16 +26,23 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v5
+      with:
+        fetch-depth: 0  # Historique complet : sert à dater la dernière mise à jour de profile/
 
     - name: Setup Node.js
       uses: actions/setup-node@v5
       with:
         node-version: '22'
 
-    # Script sans dépendance : pas de npm ci
+    - name: Find last update
+      id: last
+      run: echo "since=$(git log -1 --format=%cI -- profile/)" >> "$GITHUB_OUTPUT"
+
+    # Script sans dépendance : pas de npm ci. Sans SINCE, il régénère toujours.
     - name: Generate cards
       env:
         USERNAME: ${{ github.repository_owner }}
+        SINCE: ${{ !inputs.force && steps.last.outputs.since || '' }}
         # Token personnel en lecture seule pour inclure les langages des dépôts privés ;
         # sans lui, le token du workflow ne voit que les dépôts publics
         PROFILE_CARDS_TOKEN: ${{ secrets.PROFILE_CARDS_TOKEN }}

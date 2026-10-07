@@ -3,6 +3,7 @@
  * à partir de l'API GraphQL de GitHub, en remplacement de github-readme-stats.
  *
  * Token : PROFILE_CARDS_TOKEN (lecture des dépôts privés, pour les langages) ou GITHUB_TOKEN.
+ * SINCE (date ISO, facultatif) : ne régénère les cartes que si le compte a commité depuis cette date.
  * Confidentialité : seuls des totaux et des pourcentages sont publiés, jamais le nom d'un dépôt privé.
  */
 
@@ -12,6 +13,7 @@ const path = require('path');
 const USERNAME = process.env.USERNAME || 'Lounol72';
 const TOKEN = process.env.PROFILE_CARDS_TOKEN || process.env.GITHUB_TOKEN;
 const OUTPUT_DIR = path.resolve(process.cwd(), 'profile');
+const SINCE = process.env.SINCE ? new Date(process.env.SINCE) : null;
 
 // Langages ignorés dans la carte (fichiers générés ou annexes)
 const EXCLUDED_LANGUAGES = ['Makefile', 'CMake', 'Dockerfile', 'Batchfile', 'Shell', 'PowerShell'];
@@ -306,8 +308,85 @@ function renderStreak(streaks) {
   return card(495, 200, 'Régularité', body);
 }
 
+// --- Détection d'un nouveau commit ---
+
+const HISTORY_FIELDS = `defaultBranchRef {
+  target { ... on Commit { history(since: $since, author: { id: $author }) { totalCount } } }
+}`;
+const countHistory = (repo) => repo?.defaultBranchRef?.target?.history?.totalCount ?? 0;
+
+// Nombre de commits du compte depuis `since`, à la seconde près, sur la branche principale :
+// - des dépôts accessibles au token (les siens, y compris privés, et ceux où il est collaborateur) ;
+// - des dépôts publics d'autres comptes où GitHub lui compte des commits depuis ce jour-là.
+async function countCommitsSince(since) {
+  const yearAgo = new Date(Date.now() - 365 * 24 * 3600 * 1000);
+  const from = since > yearAgo ? since : yearAgo; // l'API limite la période à un an
+  const { user } = await graphql(
+    `query($login: String!, $from: DateTime!) {
+      user(login: $login) {
+        id
+        contributionsCollection(from: $from) {
+          commitContributionsByRepository(maxRepositories: 50) { repository { nameWithOwner } }
+        }
+      }
+    }`,
+    { login: USERNAME, from: from.toISOString() }
+  );
+  const variables = { since: since.toISOString(), author: user.id };
+
+  let total = 0;
+  const counted = new Set();
+  try {
+    const { viewer } = await graphql(
+      `query($since: GitTimestamp!, $author: ID!) {
+        viewer {
+          login
+          repositories(first: 100, ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+            nodes { nameWithOwner ${HISTORY_FIELDS} }
+          }
+        }
+      }`,
+      variables
+    );
+    if (viewer.login.toLowerCase() === USERNAME.toLowerCase()) {
+      for (const repo of viewer.repositories.nodes) {
+        total += countHistory(repo);
+        counted.add(repo.nameWithOwner);
+      }
+    }
+  } catch {
+    // Token du workflow : seuls les dépôts publics ci-dessous sont vérifiés
+  }
+
+  // Dépôts publics restants, interrogés en une requête avec des alias
+  const others = user.contributionsCollection.commitContributionsByRepository
+    .map(({ repository }) => repository.nameWithOwner)
+    .filter((name) => !counted.has(name));
+  if (others.length > 0) {
+    const fields = others
+      .map((name, i) => {
+        const [owner, repo] = name.split('/');
+        return `r${i}: repository(owner: ${JSON.stringify(owner)}, name: ${JSON.stringify(repo)}) { ${HISTORY_FIELDS} }`;
+      })
+      .join('\n');
+    const data = await graphql(`query($since: GitTimestamp!, $author: ID!) { ${fields} }`, variables);
+    total += Object.values(data).reduce((sum, repo) => sum + countHistory(repo), 0);
+  }
+
+  return total;
+}
+
 async function main() {
   if (!TOKEN) throw new Error('Aucun token : définir PROFILE_CARDS_TOKEN ou GITHUB_TOKEN');
+
+  if (SINCE && !Number.isNaN(SINCE.getTime())) {
+    const commits = await countCommitsSince(SINCE);
+    if (commits === 0) {
+      console.log(`⏭️ Aucun commit depuis ${SINCE.toISOString()} : cartes inchangées`);
+      return;
+    }
+    console.log(`🆕 ${commits} commit(s) depuis ${SINCE.toISOString()} : régénération des cartes`);
+  }
 
   const profile = await fetchProfile();
   const days = await fetchCalendarDays(profile.contributionsCollection.contributionYears);
