@@ -101,11 +101,14 @@ async function fetchProfile() {
   // Un token fine-grained ne voit les dépôts privés qu'à travers `viewer` (le propriétaire du token)
   try {
     const { viewer } = await graphql(`query { viewer { login ${REPOSITORIES_QUERY} } }`);
+    const privateCount = viewer.repositories.nodes.filter((r) => r.isPrivate).length;
+    console.log(`🔑 Token de ${viewer.login} : ${viewer.repositories.nodes.length} dépôts visibles, dont ${privateCount} privés`);
     if (viewer.login.toLowerCase() === USERNAME.toLowerCase()) {
       data.user.repositories = viewer.repositories;
     }
-  } catch {
+  } catch (error) {
     // Token du workflow (pas un utilisateur) : on garde les dépôts publics obtenus via `user`
+    console.log(`🔑 Lecture via viewer impossible (${error.message.slice(0, 160)}) : dépôts publics uniquement`);
   }
 
   return data.user;
