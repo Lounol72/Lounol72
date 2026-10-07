@@ -5,7 +5,7 @@
       "title": "SkyBeat",
       "description": "Application de visualisation musicale avec analyse de spectre audio en temps réel, développée en TypeScript.",
       "category": "Université",
-      "image": "",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMzMTc4QzYiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMzE3OEM2IiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzMxNzhDNiIgZm9udC13ZWlnaHQ9ImJvbGQiPlR5cGVTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
       "technologies": [
         "TypeScript"
       ],
@@ -13,7 +13,7 @@
       "demo": null,
       "stars": 0,
       "forks": 0,
-      "lastUpdated": "2026-03-09",
+      "lastUpdated": "2026-04-09",
       "status": "active",
       "year": 2026,
       "topics": [],
@@ -22,11 +22,53 @@
       "fork": false
     },
     {
+      "id": "github-JeuDeLaVie",
+      "title": "JeuDeLaVie",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
+      "technologies": [
+        "Java"
+      ],
+      "github": "https://github.com/Lounol72/JeuDeLaVie",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-03-18",
+      "status": "active",
+      "year": 2026,
+      "topics": [],
+      "language": "Java",
+      "archived": false,
+      "fork": false
+    },
+    {
+      "id": "github-vulkanEngine",
+      "title": "VulkanEngine",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMwMDU5OUMiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMDA1OTlDIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwNTk5QyIgZm9udC13ZWlnaHQ9ImJvbGQiPkMrKzwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "technologies": [
+        "C++"
+      ],
+      "github": "https://github.com/Lounol72/vulkanEngine",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-03-18",
+      "status": "active",
+      "year": 2026,
+      "topics": [],
+      "language": "C++",
+      "archived": false,
+      "fork": false
+    },
+    {
       "id": "github-JaiCCv1",
       "title": "JaiCCv1",
       "description": "Fork de GCC qui compte les erreurs de compilation et affiche des mèmes au-delà d'un seuil — pour rendre le débogage un peu moins douloureux.",
       "category": "Personnel",
-      "image": "",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNGN0RGMUUiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRjdERjFFIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0Y3REYxRSIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmFTY3JpcHQ8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
       "technologies": [
         "JavaScript"
       ],
@@ -34,7 +76,7 @@
       "demo": null,
       "stars": 0,
       "forks": 0,
-      "lastUpdated": "2026-03-05",
+      "lastUpdated": "2026-03-12",
       "status": "active",
       "year": 2026,
       "topics": [],
@@ -43,53 +85,11 @@
       "fork": false
     },
     {
-      "id": "github-ChessBot",
-      "title": "ChessBot",
-      "description": "Bot d'échecs en Java implémentant l'algorithme Minimax avec élagage alpha-bêta. Profondeur de recherche configurable.",
-      "category": "Personnel",
-      "image": "",
-      "technologies": [
-        "Java"
-      ],
-      "github": "https://github.com/Lounol72/ChessBot",
-      "demo": null,
-      "stars": 0,
-      "forks": 0,
-      "lastUpdated": "2025-12-04",
-      "status": "active",
-      "year": 2025,
-      "topics": [],
-      "language": "Java",
-      "archived": false,
-      "fork": false
-    },
-    {
-      "id": "github-ICPocket-java",
-      "title": "ICPocket Java",
-      "description": "Portage Java du projet ICPocket avec interface JavaFX améliorée. Version académique du jeu Pokémon-like de l'Université du Mans.",
-      "category": "Université",
-      "image": "",
-      "technologies": [
-        "Java"
-      ],
-      "github": "https://github.com/Lounol72/ICPocket-java",
-      "demo": null,
-      "stars": 1,
-      "forks": 0,
-      "lastUpdated": "2025-11-02",
-      "status": "active",
-      "year": 2025,
-      "topics": [],
-      "language": "Java",
-      "archived": false,
-      "fork": false
-    },
-    {
       "id": "github-ICPocket",
       "title": "ICPocket",
-      "description": "Jeu type \"Pokémon\" développé en C avec SDL2 dans le cadre de l'Université du Mans. Capture et combat de créatures dans un univers original.",
+      "description": "ICPocket est un jeu \"Pokemon-like\" développé par des étudiants passionnés de cet univers. Nous venons de l'Université du Mans. Plongez dans un univers unique où la programmation rencontre l'aventure !",
       "category": "Université",
-      "image": "",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiM2QjcyODAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjNkI3MjgwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzZCNzI4MCIgZm9udC13ZWlnaHQ9ImJvbGQiPkM8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
       "technologies": [
         "C"
       ],
@@ -107,48 +107,6 @@
         "sdl2-image"
       ],
       "language": "C",
-      "archived": false,
-      "fork": false
-    },
-    {
-      "id": "github-Projet_Cpp",
-      "title": "Projet_Cpp",
-      "description": "Exploration des concepts avancés du C++ : programmation orientée objet, templates, et STL.",
-      "category": "Personnel",
-      "image": "",
-      "technologies": [
-        "C++"
-      ],
-      "github": "https://github.com/Lounol72/Projet_Cpp",
-      "demo": null,
-      "stars": 0,
-      "forks": 0,
-      "lastUpdated": "2025-03-12",
-      "status": "active",
-      "year": 2025,
-      "topics": [],
-      "language": "C++",
-      "archived": false,
-      "fork": false
-    },
-    {
-      "id": "github-Shooter2D",
-      "title": "Shooter2D",
-      "description": "Jeu de tir 2D développé avec Pygame. Système de vagues d'ennemis progressives et gestion des scores.",
-      "category": "Personnel",
-      "image": "",
-      "technologies": [
-        "Python"
-      ],
-      "github": "https://github.com/Lounol72/Shooter2D",
-      "demo": null,
-      "stars": 1,
-      "forks": 0,
-      "lastUpdated": "2025-01-28",
-      "status": "active",
-      "year": 2025,
-      "topics": [],
-      "language": "Python",
       "archived": false,
       "fork": false
     }
@@ -268,23 +226,23 @@
     }
   },
   "stats": {
-    "totalProjects": 7,
+    "totalProjects": 5,
     "byCategory": {
-      "Université": 3,
-      "Personnel": 4
+      "Université": 2,
+      "Personnel": 3
     },
-    "totalStars": 3,
+    "totalStars": 1,
     "totalForks": 0,
-    "lastUpdated": "2026-03-11",
+    "lastUpdated": "2026-10-07",
     "userStats": {
-      "totalRepos": 9,
-      "totalStars": 3,
+      "totalRepos": 7,
+      "totalStars": 1,
       "followers": 4,
       "following": 0
     }
   },
   "metadata": {
-    "generatedAt": "2026-03-11T17:05:22.315Z",
+    "generatedAt": "2026-10-07T19:50:10.001Z",
     "generatedBy": "GitHub Scripts",
     "source": "GitHub API",
     "username": "Lounol72"
