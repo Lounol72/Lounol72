@@ -6,41 +6,61 @@ on:
     - cron: '0 2 * * 0'  # Chaque dimanche à 2h UTC
   workflow_dispatch:  # Permet de déclencher manuellement
 
+permissions:
+  contents: write  # Nécessaire pour pousser data/ (le token par défaut est en lecture seule)
+  actions: write   # Nécessaire pour relancer le déploiement Pages
+
 jobs:
   update-portfolio:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    
+
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '22'
         cache: 'npm'
-    
+
     - name: Install dependencies
-      run: |
-        npm init -y
-        npm install axios
-    
+      run: npm ci
+
     - name: Update GitHub stats
       env:
-        USERNAME: Lounol72
+        USERNAME: ${{ github.repository_owner }}
+        # Le run hebdomadaire tomberait juste sous l'expiration de 7 jours du cache
+        FORCE_UPDATE: 'true'
+      run: node .github/scripts/fetch-github-stats.js
+
+    - name: Security check
       run: |
-        node .github/scripts/fetch-github-stats.js
-    
+        if grep -qiE "email|private|token|key|secret" data/github.json; then
+          echo "❌ Sensitive data detected in cache!"
+          exit 1
+        fi
+
     - name: Generate portfolio
-      run: |
-        node .github/scripts/generate-portfolio.js
-    
+      run: node .github/scripts/generate-portfolio.js
+
     - name: Commit and push changes
+      id: commit
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add data/portfolio.json
-        git diff --staged --quiet || git commit -m "🤖 Auto-update portfolio data [skip ci]"
-        git push
+        git add data/
+        if git diff --staged --quiet; then
+          echo "changed=false" >> "$GITHUB_OUTPUT"
+        else
+          git commit -m "🤖 Auto-update portfolio data [skip ci]"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+        fi
+
+    # Un push fait avec GITHUB_TOKEN ne déclenche pas d'autre workflow : on lance le déploiement explicitement
+    - name: Trigger deployment
+      if: steps.commit.outputs.changed == 'true'
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: gh workflow run deploy-static.yml --ref ${{ github.ref_name }}

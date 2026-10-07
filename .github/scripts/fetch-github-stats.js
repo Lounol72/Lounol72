@@ -56,7 +56,7 @@ function shouldUpdateCache() {
 async function fetchGitHubStats() {
   try {
     // Vérifier si le cache est encore valide
-    if (!shouldUpdateCache()) {
+    if (process.env.FORCE_UPDATE !== 'true' && !shouldUpdateCache()) {
       console.log('Cache is still valid, skipping update');
       return;
     }
