@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="200" viewBox="0 0 495 200" role="img" aria-labelledby="title">
+  <title id="title">Régularité</title>
+  <style>
+    text { font-family: 'Segoe UI', Ubuntu, 'Helvetica Neue', Sans-Serif; }
+    .title { font-size: 18px; font-weight: 600; fill: #7aa2f7; }
+    .label { font-size: 14px; fill: #a9b1d6; }
+    .value { font-size: 14px; font-weight: 700; fill: #c0caf5; }
+    .muted { font-size: 12px; fill: #565f89; }
+    .big { font-size: 28px; font-weight: 700; fill: #c0caf5; }
+  </style>
+  <rect x="0.5" y="0.5" width="494" height="199" rx="6" fill="#1a1b27" stroke="#414868"/>
+  <text x="25" y="35" class="title">Régularité</text>
+  <g transform="translate(82, 0)">
+    <text x="0" y="108" class="big" text-anchor="middle" fill="#c0caf5" style="fill:#c0caf5">820</text>
+    <text x="0" y="136" class="label" text-anchor="middle">Contributions</text>
+    <text x="0" y="160" class="muted" text-anchor="middle">depuis 25 avr. 2022</text>
+  </g>
+  <line x1="165" y1="70" x2="165" y2="170" stroke="#414868"/>
+  <g transform="translate(247, 0)">
+    <text x="0" y="108" class="big" text-anchor="middle" fill="#ff9e64" style="fill:#ff9e64">11 j</text>
+    <text x="0" y="136" class="label" text-anchor="middle">Série actuelle</text>
+    <text x="0" y="160" class="muted" text-anchor="middle">27 sept. – 7 oct. 2026</text>
+  </g>
+  <line x1="330" y1="70" x2="330" y2="170" stroke="#414868"/>
+  <g transform="translate(412, 0)">
+    <text x="0" y="108" class="big" text-anchor="middle" fill="#9ece6a" style="fill:#9ece6a">15 j</text>
+    <text x="0" y="136" class="label" text-anchor="middle">Plus longue série</text>
+    <text x="0" y="160" class="muted" text-anchor="middle">17 mars – 31 mars 2025</text>
+  </g>
+</svg>

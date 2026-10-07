@@ -1,0 +1,45 @@
+name: Update Profile Cards
+
+# Régénère les cartes de statistiques du README de profil (profile/*.svg)
+on:
+  schedule:
+    - cron: '30 3 * * *'  # Chaque jour à 3h30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Nécessaire pour pousser profile/
+
+concurrency:
+  group: profile-cards
+  cancel-in-progress: true
+
+jobs:
+  update-cards:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v5
+      with:
+        node-version: '22'
+
+    # Script sans dépendance : pas de npm ci
+    - name: Generate cards
+      env:
+        USERNAME: ${{ github.repository_owner }}
+        # Token personnel en lecture seule pour inclure les langages des dépôts privés ;
+        # sans lui, le token du workflow ne voit que les dépôts publics
+        PROFILE_CARDS_TOKEN: ${{ secrets.PROFILE_CARDS_TOKEN }}
+        GITHUB_TOKEN: ${{ github.token }}
+      run: node .github/scripts/generate-profile-cards.js
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add profile/
+        git diff --staged --quiet || git commit -m "📊 Update profile cards [skip ci]"
+        git push

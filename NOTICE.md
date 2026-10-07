@@ -21,3 +21,4 @@ Toute reproduction ou réutilisation de ces contenus demande une autorisation pr
 | Polices Syne, Outfit, JetBrains Mono (via [Fontsource](https://fontsource.org)) | `assets/fonts/` | SIL Open Font License 1.1 (`OFL.txt` dans chaque dossier) |
 | [Font Awesome Free](https://fontawesome.com) 6.7.2, © Fonticons, Inc. | `assets/vendor/fontawesome/` | Icônes CC BY 4.0, polices SIL OFL 1.1, code MIT (`LICENSE.txt`) |
 | Palette [Catppuccin](https://github.com/catppuccin/catppuccin) Mocha | `assets/css/main.css` | MIT |
+| [Octicons](https://github.com/primer/octicons), © GitHub Inc. | `profile/stats.svg` (via `.github/scripts/generate-profile-cards.js`) | MIT |

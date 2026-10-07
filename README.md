@@ -58,12 +58,9 @@
 
 <div align="center">
 
-![Stats](https://github-readme-stats.vercel.app/api?username=Lounol72&show_icons=true&theme=tokyonight&hide_border=true&count_private=true)
-![Langages](https://github-readme-stats.vercel.app/api/top-langs/?username=Lounol72&layout=compact&theme=tokyonight&hide_border=true)
-
-<br/>
-
-![Streak](https://streak-stats.demolab.com/?user=Lounol72&theme=tokyonight&hide_border=true)
+<img src="profile/stats.svg" alt="Statistiques GitHub" width="49%"/>
+<img src="profile/langs.svg" alt="Langages les plus utilisés" width="49%"/>
+<img src="profile/streak.svg" alt="Régularité des contributions" width="49%"/>
 
 </div>
 
