@@ -67,6 +67,17 @@ const formatDate = (isoDay, withYear = true) =>
 
 // --- Collecte des données ---
 
+const REPOSITORIES_QUERY = `repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+  nodes {
+    name
+    isPrivate
+    stargazerCount
+    languages(first: 20, orderBy: { field: SIZE, direction: DESC }) {
+      edges { size node { name color } }
+    }
+  }
+}`;
+
 async function fetchProfile() {
   const data = await graphql(
     `query($login: String!) {
@@ -81,20 +92,22 @@ async function fetchProfile() {
           totalRepositoriesWithContributedCommits
           contributionCalendar { totalContributions }
         }
-        repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
-          nodes {
-            name
-            isPrivate
-            stargazerCount
-            languages(first: 20, orderBy: { field: SIZE, direction: DESC }) {
-              edges { size node { name color } }
-            }
-          }
-        }
+        ${REPOSITORIES_QUERY}
       }
     }`,
     { login: USERNAME }
   );
+
+  // Un token fine-grained ne voit les dépôts privés qu'à travers `viewer` (le propriétaire du token)
+  try {
+    const { viewer } = await graphql(`query { viewer { login ${REPOSITORIES_QUERY} } }`);
+    if (viewer.login.toLowerCase() === USERNAME.toLowerCase()) {
+      data.user.repositories = viewer.repositories;
+    }
+  } catch {
+    // Token du workflow (pas un utilisateur) : on garde les dépôts publics obtenus via `user`
+  }
+
   return data.user;
 }
 
