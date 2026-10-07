@@ -3,8 +3,36 @@
  * Gère l'affichage et le filtrage des projets depuis le fichier JSON
  */
 let portfolioData = null;
-let currentFilter = 'all';
+// Couleurs des langages, ajustées à la palette Catppuccin Mocha
+const LANGUAGE_COLORS = {
+    'C': '#a6adc8',
+    'C++': '#f38ba8',
+    'C#': '#a6e3a1',
+    'Java': '#fab387',
+    'JavaScript': '#f9e2af',
+    'TypeScript': '#89b4fa',
+    'Python': '#74c7ec',
+    'Haskell': '#cba6f7',
+    'HTML': '#eba0ac',
+    'CSS': '#b4befe',
+    'Rust': '#fab387',
+    'Lua': '#89b4fa',
+    'GLSL': '#94e2d5',
+};
+const CATEGORY_CLASSES = {
+    'Université': 'category--universite',
+    'Personnel': 'category--personnel',
+    'GameJam': 'category--gamejam',
+};
+const FILTER_COUNT_IDS = {
+    all: 'count-all',
+    Université: 'count-universite',
+    Personnel: 'count-personnel',
+    GameJam: 'count-gamejam',
+};
+const MISSING_DESCRIPTION = 'Aucune description disponible';
 document.addEventListener('DOMContentLoaded', () => {
+    initializeFilters();
     loadPortfolioData();
 });
 async function loadPortfolioData() {
@@ -15,191 +43,151 @@ async function loadPortfolioData() {
             throw new Error(`Erreur HTTP: ${response.status}`);
         }
         portfolioData = (await response.json());
-        initializePortfolio();
+        if (!portfolioData?.projects?.length) {
+            showMessageState('fa-folder-open', 'Aucun projet à afficher pour le moment.');
+            return;
+        }
+        updateFilterCounts();
+        displayProjects(getActiveFilter());
     }
     catch (error) {
         console.error('Erreur lors du chargement du portfolio:', error);
-        showErrorState('Impossible de charger les projets. Veuillez réessayer plus tard.');
+        showMessageState('fa-triangle-exclamation', 'Impossible de charger les projets. Veuillez réessayer plus tard.', true);
     }
 }
-function initializePortfolio() {
-    if (!portfolioData?.projects) {
-        showErrorState('Aucun projet trouvé.');
-        return;
-    }
-    updateFilterCounts();
-    displayProjects(portfolioData.projects);
-    initializeFilters();
-    hideLoadingState();
+function escapeHtml(value) {
+    return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
 }
 function updateFilterCounts() {
     if (!portfolioData)
         return;
     const projects = portfolioData.projects;
-    const counts = {
-        'all': projects.length,
-        'Université': projects.filter((p) => p.category === 'Université').length,
-        'Personnel': projects.filter((p) => p.category === 'Personnel').length,
-        'GameJam': projects.filter((p) => p.category === 'GameJam').length,
-    };
-    const categoryIds = {
-        all: 'count-all',
-        Université: 'count-universite',
-        Personnel: 'count-personnel',
-        GameJam: 'count-gamejam',
-    };
-    Object.keys(counts).forEach((category) => {
-        const id = categoryIds[category];
-        const countElement = id ? document.getElementById(id) : null;
-        if (countElement)
-            countElement.textContent = String(counts[category]);
+    Object.entries(FILTER_COUNT_IDS).forEach(([category, id]) => {
+        const count = category === 'all' ? projects.length : projects.filter((p) => p.category === category).length;
+        const countElement = document.getElementById(id);
+        if (!countElement)
+            return;
+        countElement.textContent = String(count);
+        // Une catégorie vide n'a pas besoin de filtre
+        const button = countElement.closest('.filter');
+        if (button && category !== 'all')
+            button.hidden = count === 0;
     });
 }
-function displayProjects(projects) {
+function getActiveFilter() {
+    return document.querySelector('.filter.active')?.dataset.filter ?? 'all';
+}
+function displayProjects(category) {
     const portfolioGrid = document.getElementById('portfolio-grid');
-    if (!portfolioGrid)
+    if (!portfolioGrid || !portfolioData)
         return;
-    if (!projects || projects.length === 0) {
-        portfolioGrid.innerHTML = '<div class="no-projects">Aucun projet trouvé</div>';
+    const projects = category === 'all'
+        ? portfolioData.projects
+        : portfolioData.projects.filter((project) => project.category === category);
+    if (projects.length === 0) {
+        showMessageState('fa-folder-open', 'Aucun projet dans cette catégorie.');
         return;
     }
     portfolioGrid.innerHTML = projects.map((project, index) => generateProjectCard(project, index)).join('');
-    animateProjectCards();
 }
-const LANG_COLORS = {
-    'TypeScript': '#3178C6',
-    'JavaScript': '#F7DF1E',
-    'Java': '#ED8B00',
-    'C': '#A8B9CC',
-    'C++': '#00599C',
-    'C#': '#239120',
-    'Python': '#3776AB',
-    'CSS': '#1572B6',
-    'HTML': '#E34F26',
-    'Rust': '#CE422B',
-    'Go': '#00ADD8',
-    'Ruby': '#CC342D',
-    'PHP': '#777BB4',
-    'Swift': '#FA7343',
-    'Kotlin': '#7F52FF',
-};
-function getCategoryClass(category) {
-    const map = {
-        'Université': 'category--universite',
-        'Personnel': 'category--personnel',
-        'GameJam': 'category--gamejam',
-    };
-    return map[category] ?? 'category--personnel';
+function formatMonth(dateString) {
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime()))
+        return '';
+    return date.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
 }
 function generateProjectCard(project, index) {
     const categoryInfo = portfolioData?.categories?.[project.category];
     const categoryIcon = categoryInfo?.icon ?? 'fas fa-folder';
-    const categoryClass = getCategoryClass(project.category);
-    const langColor = LANG_COLORS[project.language] ?? '#cba6f7';
-    const indexNum = String((index ?? 0) + 1).padStart(2, '0');
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'short' };
-        return new Date(dateString).toLocaleDateString('fr-FR', options);
-    };
+    const categoryClass = CATEGORY_CLASSES[project.category] ?? 'category--personnel';
+    const language = project.language && project.language !== 'Other' ? project.language : '';
+    const langColor = LANGUAGE_COLORS[language];
+    const style = `--i: ${index};${langColor ? ` --lang: ${langColor};` : ''}`;
+    const hasDescription = project.description && project.description !== MISSING_DESCRIPTION;
+    const description = hasDescription
+        ? escapeHtml(project.description)
+        : 'Pas encore de description.';
+    // Les topics GitHub servent de tags (sans répéter le langage)
+    const tags = (project.topics ?? [])
+        .filter((topic) => topic.toLowerCase() !== language.toLowerCase())
+        .slice(0, 4)
+        .map((topic) => `<li>${escapeHtml(topic)}</li>`)
+        .join('');
+    const updated = formatMonth(project.lastUpdated);
+    const stars = project.stars > 0
+        ? `<span title="Étoiles sur GitHub"><i class="fas fa-star" aria-hidden="true"></i>${project.stars}</span>`
+        : '';
+    const demoLink = project.demo
+        ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer" class="project-demo">Démo</a>`
+        : '';
     return `
-    <div class="portfolio-item" data-category="${project.category}" data-id="${project.id}" style="--lang-color: ${langColor}">
-      <div class="portfolio-card-accent"></div>
-      <div class="portfolio-card-content">
-        <div class="portfolio-card-top">
-          <div class="portfolio-lang-indicator">
-            <span class="lang-dot"></span>
-            <span>${project.language ?? 'Code'}</span>
-          </div>
-          <span class="portfolio-category ${categoryClass}">
-            <i class="${categoryIcon}" aria-hidden="true"></i> ${project.category}
-          </span>
-        </div>
-        <div class="portfolio-card-body">
-          <div class="portfolio-index-num">${indexNum}</div>
-          <h3 class="portfolio-title">${project.title}</h3>
-          <p class="portfolio-description-text">${project.description}</p>
-        </div>
-        <div class="portfolio-card-footer">
-          <div class="portfolio-meta">
-            <span><i class="fas fa-star" aria-hidden="true"></i> ${project.stars}</span>
-            <span><i class="fas fa-code-branch" aria-hidden="true"></i> ${project.forks}</span>
-            <span><i class="fas fa-clock" aria-hidden="true"></i> ${formatDate(project.lastUpdated)}</span>
-          </div>
-          <div class="portfolio-actions">
-            <a href="${project.github}" target="_blank" class="portfolio-action" rel="noopener noreferrer" aria-label="Voir le code de ${project.title} sur GitHub">
-              <i class="fab fa-github" aria-hidden="true"></i> Code
-            </a>
-            ${project.demo ? `
-            <a href="${project.demo}" target="_blank" class="portfolio-action portfolio-action--demo" rel="noopener noreferrer" aria-label="Voir la démo de ${project.title}">
-              <i class="fas fa-external-link-alt" aria-hidden="true"></i> Démo
-            </a>` : ''}
-          </div>
-        </div>
+    <article class="project-card" data-category="${escapeHtml(project.category)}" style="${style}">
+      <div class="project-top">
+        <span class="project-lang">${escapeHtml(language || 'Code')}</span>
+        <span class="project-cat ${categoryClass}">
+          <i class="${escapeHtml(categoryIcon)}" aria-hidden="true"></i> ${escapeHtml(project.category)}
+        </span>
       </div>
-    </div>
+      <h3 class="project-title">
+        <a href="${escapeHtml(project.github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.title)}</a>
+      </h3>
+      <p class="project-desc${hasDescription ? '' : ' project-desc--empty'}">${description}</p>
+      ${tags ? `<ul class="project-tags" aria-label="Thèmes">${tags}</ul>` : ''}
+      <div class="project-foot">
+        <span class="project-meta">
+          ${stars}
+          ${updated ? `<span>maj. ${updated}</span>` : ''}
+        </span>
+        <span class="project-links">
+          ${demoLink}
+          <span class="project-cta" aria-hidden="true">Code <i class="fas fa-arrow-up-right-from-square"></i></span>
+        </span>
+      </div>
+    </article>
   `;
 }
 function initializeFilters() {
     const filters = document.querySelectorAll('.filter');
     filters.forEach((filter) => {
-        filter.addEventListener('click', function () {
+        filter.addEventListener('click', () => {
             filters.forEach((f) => {
-                f.classList.remove('active');
-                f.setAttribute('aria-pressed', 'false');
+                f.classList.toggle('active', f === filter);
+                f.setAttribute('aria-pressed', String(f === filter));
             });
-            this.classList.add('active');
-            this.setAttribute('aria-pressed', 'true');
-            const category = this.getAttribute('data-filter') ?? 'all';
-            currentFilter = category;
-            filterProjects(category);
+            displayProjects(filter.dataset.filter ?? 'all');
         });
-    });
-}
-function filterProjects(category) {
-    if (!portfolioData)
-        return;
-    const filteredProjects = category === 'all'
-        ? portfolioData.projects
-        : portfolioData.projects.filter((project) => project.category === category);
-    displayProjects(filteredProjects);
-}
-function animateProjectCards() {
-    const cards = document.querySelectorAll('.portfolio-item');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(24px)';
-        card.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 80);
     });
 }
 function showLoadingState() {
     const portfolioGrid = document.getElementById('portfolio-grid');
     if (!portfolioGrid)
         return;
-    const skeletonCards = Array.from({ length: 6 }, () => `<div class="skeleton-card"></div>`).join('');
-    portfolioGrid.innerHTML = `<div class="skeleton-grid">${skeletonCards}</div>`;
+    portfolioGrid.innerHTML = Array.from({ length: 3 }, () => `
+    <div class="project-card" aria-hidden="true">
+      <div class="skeleton skeleton--line skeleton--short"></div>
+      <div class="skeleton skeleton--title"></div>
+      <div class="skeleton skeleton--line"></div>
+      <div class="skeleton skeleton--line skeleton--short"></div>
+    </div>
+  `).join('');
 }
-function hideLoadingState() {
-    const skeletonGrid = document.querySelector('.skeleton-grid');
-    if (skeletonGrid)
-        skeletonGrid.remove();
-}
-function showErrorState(message) {
+function showMessageState(icon, message, withRetry = false) {
     const portfolioGrid = document.getElementById('portfolio-grid');
-    if (portfolioGrid) {
-        portfolioGrid.innerHTML = `
-      <div class="error-message">
-        <i class="fas fa-exclamation-triangle"></i>
-        <p>${message}</p>
-        <button onclick="loadPortfolioData()" class="btn btn-primary">
-          <i class="fas fa-refresh"></i> Réessayer
-        </button>
-      </div>
-    `;
-    }
+    if (!portfolioGrid)
+        return;
+    portfolioGrid.innerHTML = `
+    <div class="portfolio-state">
+      <i class="fas ${icon}" aria-hidden="true"></i>
+      <p>${message}</p>
+      ${withRetry ? '<button type="button" class="btn btn-secondary" data-retry><i class="fas fa-rotate-right" aria-hidden="true"></i> Réessayer</button>' : ''}
+    </div>
+  `;
+    portfolioGrid.querySelector('[data-retry]')?.addEventListener('click', () => loadPortfolioData());
 }
 function getPortfolioStats() {
     return portfolioData?.stats ?? null;
@@ -214,7 +202,6 @@ function searchProjects(query) {
         project.description.toLowerCase().includes(searchTerm) ||
         project.technologies.some((tech) => tech.toLowerCase().includes(searchTerm)));
 }
-window.loadPortfolioData = loadPortfolioData;
 window.portfolioUtils = {
     getStats: getPortfolioStats,
     search: searchProjects,

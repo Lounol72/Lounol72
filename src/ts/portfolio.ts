@@ -6,9 +6,41 @@
 import type { PortfolioData, Project } from '../types/portfolio';
 
 let portfolioData: PortfolioData | null = null;
-let currentFilter = 'all';
+
+// Couleurs des langages, ajustées à la palette Catppuccin Mocha
+const LANGUAGE_COLORS: Record<string, string> = {
+  'C': '#a6adc8',
+  'C++': '#f38ba8',
+  'C#': '#a6e3a1',
+  'Java': '#fab387',
+  'JavaScript': '#f9e2af',
+  'TypeScript': '#89b4fa',
+  'Python': '#74c7ec',
+  'Haskell': '#cba6f7',
+  'HTML': '#eba0ac',
+  'CSS': '#b4befe',
+  'Rust': '#fab387',
+  'Lua': '#89b4fa',
+  'GLSL': '#94e2d5',
+};
+
+const CATEGORY_CLASSES: Record<string, string> = {
+  'Université': 'category--universite',
+  'Personnel': 'category--personnel',
+  'GameJam': 'category--gamejam',
+};
+
+const FILTER_COUNT_IDS: Record<string, string> = {
+  all: 'count-all',
+  Université: 'count-universite',
+  Personnel: 'count-personnel',
+  GameJam: 'count-gamejam',
+};
+
+const MISSING_DESCRIPTION = 'Aucune description disponible';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initializeFilters();
   loadPortfolioData();
 });
 
@@ -22,136 +54,125 @@ async function loadPortfolioData(): Promise<void> {
     }
 
     portfolioData = (await response.json()) as PortfolioData;
-    initializePortfolio();
+
+    if (!portfolioData?.projects?.length) {
+      showMessageState('fa-folder-open', 'Aucun projet à afficher pour le moment.');
+      return;
+    }
+
+    updateFilterCounts();
+    displayProjects(getActiveFilter());
   } catch (error) {
     console.error('Erreur lors du chargement du portfolio:', error);
-    showErrorState('Impossible de charger les projets. Veuillez réessayer plus tard.');
+    showMessageState('fa-triangle-exclamation', 'Impossible de charger les projets. Veuillez réessayer plus tard.', true);
   }
 }
 
-function initializePortfolio(): void {
-  if (!portfolioData?.projects) {
-    showErrorState('Aucun projet trouvé.');
-    return;
-  }
-
-  updateFilterCounts();
-  displayProjects(portfolioData.projects);
-  initializeFilters();
-  hideLoadingState();
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 function updateFilterCounts(): void {
   if (!portfolioData) return;
-
   const projects = portfolioData.projects;
-  const counts: Record<string, number> = {
-    'all': projects.length,
-    'Université': projects.filter((p) => p.category === 'Université').length,
-    'Personnel': projects.filter((p) => p.category === 'Personnel').length,
-    'GameJam': projects.filter((p) => p.category === 'GameJam').length,
-  };
 
-  const categoryIds: Record<string, string> = {
-    all: 'count-all',
-    Université: 'count-universite',
-    Personnel: 'count-personnel',
-    GameJam: 'count-gamejam',
-  };
+  Object.entries(FILTER_COUNT_IDS).forEach(([category, id]) => {
+    const count = category === 'all' ? projects.length : projects.filter((p) => p.category === category).length;
+    const countElement = document.getElementById(id);
+    if (!countElement) return;
 
-  Object.keys(counts).forEach((category) => {
-    const id = categoryIds[category];
-    const countElement = id ? document.getElementById(id) : null;
-    if (countElement) countElement.textContent = String(counts[category]);
+    countElement.textContent = String(count);
+    // Une catégorie vide n'a pas besoin de filtre
+    const button = countElement.closest<HTMLButtonElement>('.filter');
+    if (button && category !== 'all') button.hidden = count === 0;
   });
 }
 
-function displayProjects(projects: Project[]): void {
-  const portfolioGrid = document.getElementById('portfolio-grid');
-  if (!portfolioGrid) return;
+function getActiveFilter(): string {
+  return document.querySelector<HTMLButtonElement>('.filter.active')?.dataset.filter ?? 'all';
+}
 
-  if (!projects || projects.length === 0) {
-    portfolioGrid.innerHTML = '<div class="no-projects">Aucun projet trouvé</div>';
+function displayProjects(category: string): void {
+  const portfolioGrid = document.getElementById('portfolio-grid');
+  if (!portfolioGrid || !portfolioData) return;
+
+  const projects =
+    category === 'all'
+      ? portfolioData.projects
+      : portfolioData.projects.filter((project) => project.category === category);
+
+  if (projects.length === 0) {
+    showMessageState('fa-folder-open', 'Aucun projet dans cette catégorie.');
     return;
   }
 
-  portfolioGrid.innerHTML = projects.map((project) => generateProjectCard(project)).join('');
-  animateProjectCards();
+  portfolioGrid.innerHTML = projects.map((project, index) => generateProjectCard(project, index)).join('');
 }
 
-function getCategoryClass(category: string): string {
-  const map: Record<string, string> = {
-    'Université': 'category--universite',
-    'Personnel': 'category--personnel',
-    'GameJam': 'category--gamejam',
-  };
-  return map[category] ?? 'category--personnel';
+function formatMonth(dateString: string): string {
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) return '';
+  return date.toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' });
 }
 
-function generateProjectCard(project: Project): string {
+function generateProjectCard(project: Project, index: number): string {
   const categoryInfo = portfolioData?.categories?.[project.category];
   const categoryIcon = categoryInfo?.icon ?? 'fas fa-folder';
-  const categoryClass = getCategoryClass(project.category);
+  const categoryClass = CATEGORY_CLASSES[project.category] ?? 'category--personnel';
+  const language = project.language && project.language !== 'Other' ? project.language : '';
+  const langColor = LANGUAGE_COLORS[language];
+  const style = `--i: ${index};${langColor ? ` --lang: ${langColor};` : ''}`;
 
-  const formatDate = (dateString: string): string => {
-    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('fr-FR', options);
-  };
+  const hasDescription = project.description && project.description !== MISSING_DESCRIPTION;
+  const description = hasDescription
+    ? escapeHtml(project.description)
+    : 'Pas encore de description.';
 
-  const techBadges = project.technologies
-    .map((tech) => `<span class="tech-tag">${tech}</span>`)
+  // Les topics GitHub servent de tags (sans répéter le langage)
+  const tags = (project.topics ?? [])
+    .filter((topic) => topic.toLowerCase() !== language.toLowerCase())
+    .slice(0, 4)
+    .map((topic) => `<li>${escapeHtml(topic)}</li>`)
     .join('');
 
-  const categoryBadge = `
-    <span class="portfolio-category ${categoryClass}">
-      <i class="${categoryIcon}"></i> ${project.category}
-    </span>
-  `;
-
-  const languageBadge = project.language
-    ? `<span class="language-badge"><i class="fas fa-code"></i> ${project.language}</span>`
+  const updated = formatMonth(project.lastUpdated);
+  const stars = project.stars > 0
+    ? `<span title="Étoiles sur GitHub"><i class="fas fa-star" aria-hidden="true"></i>${project.stars}</span>`
     : '';
 
-  const actionButtons = `
-    <div class="portfolio-actions">
-      <a href="${project.github}" target="_blank" class="portfolio-action" rel="noopener">
-        <i class="fab fa-github"></i> Code
-      </a>
-      ${project.demo ? `
-        <a href="${project.demo}" target="_blank" class="portfolio-action" rel="noopener">
-          <i class="fas fa-external-link-alt"></i> Démo
-        </a>
-      ` : ''}
-    </div>
-  `;
+  const demoLink = project.demo
+    ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noopener noreferrer" class="project-demo">Démo</a>`
+    : '';
 
   return `
-    <div class="portfolio-item" data-category="${project.category}" data-id="${project.id}">
-      <div class="portfolio-image">
-        <img src="${project.image}" alt="${project.title}" loading="lazy"
-             onerror="this.src='assets/images/placeholder-project.jpg'">
-        <div class="portfolio-overlay">
-          <a href="${project.github}" target="_blank" rel="noopener" class="portfolio-overlay-link" aria-label="Voir le code de ${project.title}">
-            <i class="fas fa-external-link-alt"></i>
-          </a>
-        </div>
+    <article class="project-card" data-category="${escapeHtml(project.category)}" style="${style}">
+      <div class="project-top">
+        <span class="project-lang">${escapeHtml(language || 'Code')}</span>
+        <span class="project-cat ${categoryClass}">
+          <i class="${escapeHtml(categoryIcon)}" aria-hidden="true"></i> ${escapeHtml(project.category)}
+        </span>
       </div>
-      <div class="portfolio-info">
-        ${categoryBadge}
-        <h3 class="portfolio-title">${project.title}</h3>
-        <p class="portfolio-description-text">${project.description}</p>
-        <div class="portfolio-meta">
-          <span><i class="fas fa-star"></i> ${project.stars}</span>
-          <span><i class="fas fa-code-branch"></i> ${project.forks}</span>
-          <span><i class="fas fa-calendar"></i> ${formatDate(project.lastUpdated)}</span>
-        </div>
-        <div class="portfolio-technologies">
-          ${techBadges}
-          ${languageBadge}
-        </div>
-        ${actionButtons}
+      <h3 class="project-title">
+        <a href="${escapeHtml(project.github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.title)}</a>
+      </h3>
+      <p class="project-desc${hasDescription ? '' : ' project-desc--empty'}">${description}</p>
+      ${tags ? `<ul class="project-tags" aria-label="Thèmes">${tags}</ul>` : ''}
+      <div class="project-foot">
+        <span class="project-meta">
+          ${stars}
+          ${updated ? `<span>maj. ${updated}</span>` : ''}
+        </span>
+        <span class="project-links">
+          ${demoLink}
+          <span class="project-cta" aria-hidden="true">Code <i class="fas fa-arrow-up-right-from-square"></i></span>
+        </span>
       </div>
-    </div>
+    </article>
   `;
 }
 
@@ -159,44 +180,13 @@ function initializeFilters(): void {
   const filters = document.querySelectorAll<HTMLButtonElement>('.filter');
 
   filters.forEach((filter) => {
-    filter.addEventListener('click', function (this: HTMLButtonElement) {
+    filter.addEventListener('click', () => {
       filters.forEach((f) => {
-        f.classList.remove('active');
-        f.setAttribute('aria-pressed', 'false');
+        f.classList.toggle('active', f === filter);
+        f.setAttribute('aria-pressed', String(f === filter));
       });
-      this.classList.add('active');
-      this.setAttribute('aria-pressed', 'true');
-
-      const category = this.getAttribute('data-filter') ?? 'all';
-      currentFilter = category;
-      filterProjects(category);
+      displayProjects(filter.dataset.filter ?? 'all');
     });
-  });
-}
-
-function filterProjects(category: string): void {
-  if (!portfolioData) return;
-
-  const filteredProjects =
-    category === 'all'
-      ? portfolioData.projects
-      : portfolioData.projects.filter((project) => project.category === category);
-
-  displayProjects(filteredProjects);
-}
-
-function animateProjectCards(): void {
-  const cards = document.querySelectorAll<HTMLElement>('.portfolio-item');
-
-  cards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
-    setTimeout(() => {
-      card.style.opacity = '1';
-      card.style.transform = 'translateY(0)';
-    }, index * 100);
   });
 }
 
@@ -204,44 +194,29 @@ function showLoadingState(): void {
   const portfolioGrid = document.getElementById('portfolio-grid');
   if (!portfolioGrid) return;
 
-  const skeletonCards = Array.from({ length: 6 }, () => `
-    <div class="skeleton-card">
-      <div class="skeleton-image"></div>
-      <div class="skeleton-body">
-        <div class="skeleton-line skeleton-line--badge"></div>
-        <div class="skeleton-line skeleton-line--title"></div>
-        <div class="skeleton-line skeleton-line--text"></div>
-        <div class="skeleton-line skeleton-line--text-short"></div>
-        <div class="skeleton-tags">
-          <div class="skeleton-tag"></div>
-          <div class="skeleton-tag"></div>
-          <div class="skeleton-tag"></div>
-        </div>
-      </div>
+  portfolioGrid.innerHTML = Array.from({ length: 3 }, () => `
+    <div class="project-card" aria-hidden="true">
+      <div class="skeleton skeleton--line skeleton--short"></div>
+      <div class="skeleton skeleton--title"></div>
+      <div class="skeleton skeleton--line"></div>
+      <div class="skeleton skeleton--line skeleton--short"></div>
     </div>
   `).join('');
-
-  portfolioGrid.innerHTML = `<div class="skeleton-grid">${skeletonCards}</div>`;
 }
 
-function hideLoadingState(): void {
-  const skeletonGrid = document.querySelector('.skeleton-grid');
-  if (skeletonGrid) skeletonGrid.remove();
-}
-
-function showErrorState(message: string): void {
+function showMessageState(icon: string, message: string, withRetry = false): void {
   const portfolioGrid = document.getElementById('portfolio-grid');
-  if (portfolioGrid) {
-    portfolioGrid.innerHTML = `
-      <div class="error-message">
-        <i class="fas fa-exclamation-triangle"></i>
-        <p>${message}</p>
-        <button onclick="loadPortfolioData()" class="btn btn-primary">
-          <i class="fas fa-refresh"></i> Réessayer
-        </button>
-      </div>
-    `;
-  }
+  if (!portfolioGrid) return;
+
+  portfolioGrid.innerHTML = `
+    <div class="portfolio-state">
+      <i class="fas ${icon}" aria-hidden="true"></i>
+      <p>${message}</p>
+      ${withRetry ? '<button type="button" class="btn btn-secondary" data-retry><i class="fas fa-rotate-right" aria-hidden="true"></i> Réessayer</button>' : ''}
+    </div>
+  `;
+
+  portfolioGrid.querySelector('[data-retry]')?.addEventListener('click', () => loadPortfolioData());
 }
 
 function getPortfolioStats(): PortfolioData['stats'] | null {
@@ -260,8 +235,6 @@ function searchProjects(query: string): Project[] {
       project.technologies.some((tech) => tech.toLowerCase().includes(searchTerm))
   );
 }
-
-(window as Window & { loadPortfolioData?: () => Promise<void> }).loadPortfolioData = loadPortfolioData;
 
 window.portfolioUtils = {
   getStats: getPortfolioStats,

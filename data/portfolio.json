@@ -24,7 +24,7 @@
     {
       "id": "github-JeuDeLaVie",
       "title": "JeuDeLaVie",
-      "description": "Aucune description disponible",
+      "description": "Le Jeu de la vie de Conway en Java, structuré autour de 5 design patterns.",
       "category": "Personnel",
       "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiNFRDhCMDAiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjRUQ4QjAwIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iI0VEOEIwMCIgZm9udC13ZWlnaHQ9ImJvbGQiPkphdmE8L3RleHQ+CiAgICA8L3N2Zz4KICA=",
       "technologies": [
@@ -45,7 +45,7 @@
     {
       "id": "github-vulkanEngine",
       "title": "VulkanEngine",
-      "description": "Aucune description disponible",
+      "description": "Moteur de rendu Vulkan en C++ : PBR, shadow mapping et frustum culling.",
       "category": "Personnel",
       "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMwMDU5OUMiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMDA1OTlDIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwNTk5QyIgZm9udC13ZWlnaHQ9ImJvbGQiPkMrKzwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
       "technologies": [
@@ -242,7 +242,7 @@
     }
   },
   "metadata": {
-    "generatedAt": "2026-10-07T19:54:50.235Z",
+    "generatedAt": "2026-10-07T20:30:25.304Z",
     "generatedBy": "GitHub Scripts",
     "source": "GitHub API",
     "username": "Lounol72"

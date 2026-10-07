@@ -1,10 +1,20 @@
-const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 // Zlib est une bibliothèque intégrée à Node.js, pas besoin de l'installer séparément
 const zlib = require('zlib');
 
 const username = process.env.USERNAME || 'Lounol72';
+
+// Requête GET JSON avec le fetch natif de Node (>= 18) ; lève une erreur sur un statut non 2xx
+async function getJson(url, accept) {
+  const response = await fetch(url, {
+    headers: { 'User-Agent': 'Portfolio-Cache-Updater/1.0', 'Accept': accept }
+  });
+  if (!response.ok) {
+    throw new Error(`GitHub API ${response.status} ${response.statusText} pour ${url}`);
+  }
+  return response.json();
+}
 
 // Configuration de sécurité - seules les données publiques sont récupérées
 const SECURITY_CONFIG = {
@@ -64,26 +74,16 @@ async function fetchGitHubStats() {
     console.log('Updating GitHub cache...');
     
     // Utiliser l'API publique sans token (données publiques uniquement)
-    const userResponse = await axios.get(`https://api.github.com/users/${username}`, {
-      headers: {
-        'User-Agent': 'Portfolio-Cache-Updater/1.0',
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
+    const user = await getJson(`https://api.github.com/users/${username}`, 'application/vnd.github.v3+json');
     
     // Nettoyer les données utilisateur (sécurité)
-    const userData = sanitizeData(userResponse.data, SECURITY_CONFIG.allowedUserFields);
+    const userData = sanitizeData(user, SECURITY_CONFIG.allowedUserFields);
     
     // Récupérer uniquement les dépôts publics avec topics
-    const reposResponse = await axios.get(`https://api.github.com/users/${username}/repos?per_page=100&type=public&sort=updated`, {
-      headers: {
-        'User-Agent': 'Portfolio-Cache-Updater/1.0',
-        'Accept': 'application/vnd.github.mercy-preview+json'
-      }
-    });
+    const rawRepos = await getJson(`https://api.github.com/users/${username}/repos?per_page=100&type=public&sort=updated`, 'application/vnd.github.mercy-preview+json');
     
     // Nettoyer les données des repos (sécurité)
-    const reposData = reposResponse.data.map(repo => sanitizeData(repo, SECURITY_CONFIG.allowedRepoFields));
+    const reposData = rawRepos.map(repo => sanitizeData(repo, SECURITY_CONFIG.allowedRepoFields));
 
     // Ne stocker que les données publiques essentielles et sécurisées
     const stats = {

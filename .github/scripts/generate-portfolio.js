@@ -39,6 +39,8 @@ const CUSTOM_DESCRIPTIONS = {
   'ICPocket-java': 'Portage Java du projet ICPocket avec une interface JavaFX améliorée. Version académique du jeu Pokémon-like.',
   'Projet_Cpp': 'Exploration des concepts avancés du C++ : programmation orientée objet, templates, et STL.',
   'Shooter2D': 'Jeu de tir 2D développé avec Pygame. Système de vagues d\'ennemis progressives et gestion des scores.',
+  'vulkanEngine': 'Moteur de rendu Vulkan en C++ : PBR, shadow mapping et frustum culling.',
+  'JeuDeLaVie': 'Le Jeu de la vie de Conway en Java, structuré autour de 5 design patterns.',
 };
 
 // Projets à exclure
