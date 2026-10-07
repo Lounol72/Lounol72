@@ -11,7 +11,7 @@
   <rect x="0.5" y="0.5" width="494" height="199" rx="6" fill="#1a1b27" stroke="#414868"/>
   <text x="25" y="35" class="title">Régularité</text>
   <g transform="translate(82, 0)">
-    <text x="0" y="108" class="big" text-anchor="middle" fill="#c0caf5" style="fill:#c0caf5">822</text>
+    <text x="0" y="108" class="big" text-anchor="middle" fill="#c0caf5" style="fill:#c0caf5">823</text>
     <text x="0" y="136" class="label" text-anchor="middle">Contributions</text>
     <text x="0" y="160" class="muted" text-anchor="middle">depuis 25 avr. 2022</text>
   </g>
