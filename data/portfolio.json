@@ -1,6 +1,27 @@
 {
   "projects": [
     {
+      "id": "github-MiniNumpy",
+      "title": "MiniNumpy",
+      "description": "Aucune description disponible",
+      "category": "Personnel",
+      "image": "data:image/svg+xml;base64,CiAgICA8c3ZnIHdpZHRoPSIzNTAiIGhlaWdodD0iMjUwIiB2aWV3Qm94PSIwIDAgMzUwIDI1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgICAgPHJlY3Qgd2lkdGg9IjM1MCIgaGVpZ2h0PSIyNTAiIGZpbGw9IiNGM0Y0RjYiLz4KICAgICAgPHJlY3QgeD0iNTAiIHk9IjUwIiB3aWR0aD0iMjUwIiBoZWlnaHQ9IjE1MCIgcng9IjgiIGZpbGw9IiMwMDU5OUMiIG9wYWNpdHk9IjAuMSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMjUiIHI9IjMwIiBmaWxsPSIjMDA1OTlDIiBvcGFjaXR5PSIwLjMiLz4KICAgICAgPHRleHQgeD0iMTc1IiB5PSIxMzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzAwNTk5QyIgZm9udC13ZWlnaHQ9ImJvbGQiPkMrKzwvdGV4dD4KICAgIDwvc3ZnPgogIA==",
+      "technologies": [
+        "C++"
+      ],
+      "github": "https://github.com/Lounol72/MiniNumpy",
+      "demo": null,
+      "stars": 0,
+      "forks": 0,
+      "lastUpdated": "2026-11-06",
+      "status": "active",
+      "year": 2026,
+      "topics": [],
+      "language": "C++",
+      "archived": false,
+      "fork": false
+    },
+    {
       "id": "github-SkyBeat",
       "title": "SkyBeat",
       "description": "Application de visualisation musicale avec analyse de spectre audio en temps réel, développée en TypeScript.",
@@ -226,23 +247,23 @@
     }
   },
   "stats": {
-    "totalProjects": 5,
+    "totalProjects": 6,
     "byCategory": {
-      "Université": 2,
-      "Personnel": 3
+      "Personnel": 4,
+      "Université": 2
     },
     "totalStars": 1,
     "totalForks": 0,
-    "lastUpdated": "2026-11-01",
+    "lastUpdated": "2026-11-08",
     "userStats": {
-      "totalRepos": 7,
+      "totalRepos": 8,
       "totalStars": 1,
       "followers": 4,
       "following": 0
     }
   },
   "metadata": {
-    "generatedAt": "2026-11-01T08:54:19.269Z",
+    "generatedAt": "2026-11-08T08:44:27.862Z",
     "generatedBy": "GitHub Scripts",
     "source": "GitHub API",
     "username": "Lounol72"
