@@ -12,23 +12,23 @@
   <text x="25" y="35" class="title">Langages les plus utilisés</text>
   <clipPath id="bar"><rect x="25" y="55" width="445" height="8" rx="4"/></clipPath>
   <g clip-path="url(#bar)">
-    <rect x="25.00" y="55" width="194.78" height="8" fill="#9aa5ce"/>
-    <rect x="219.78" y="55" width="93.49" height="8" fill="#f34b7d"/>
-    <rect x="313.27" y="55" width="49.13" height="8" fill="#44a51c"/>
-    <rect x="362.41" y="55" width="31.79" height="8" fill="#f1e05a"/>
-    <rect x="394.20" y="55" width="25.45" height="8" fill="#b07219"/>
-    <rect x="419.64" y="55" width="12.47" height="8" fill="#3572A5"/>
-    <rect x="432.11" y="55" width="37.89" height="8" fill="#565f89"/>
+    <rect x="25.00" y="55" width="194.46" height="8" fill="#9aa5ce"/>
+    <rect x="219.46" y="55" width="94.08" height="8" fill="#f34b7d"/>
+    <rect x="313.53" y="55" width="49.05" height="8" fill="#44a51c"/>
+    <rect x="362.58" y="55" width="31.74" height="8" fill="#f1e05a"/>
+    <rect x="394.32" y="55" width="25.40" height="8" fill="#b07219"/>
+    <rect x="419.73" y="55" width="12.45" height="8" fill="#3572A5"/>
+    <rect x="432.17" y="55" width="37.83" height="8" fill="#565f89"/>
   </g>
   <g transform="translate(25, 92)">
     <circle cx="5" cy="-5" r="5" fill="#9aa5ce"/>
     <text x="18" y="0" class="label">C</text>
-    <text x="205" y="0" class="muted" text-anchor="end">43,8 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">43,7 %</text>
   </g>
   <g transform="translate(250, 92)">
     <circle cx="5" cy="-5" r="5" fill="#f34b7d"/>
     <text x="18" y="0" class="label">C++</text>
-    <text x="205" y="0" class="muted" text-anchor="end">21,0 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">21,1 %</text>
   </g>
   <g transform="translate(25, 118)">
     <circle cx="5" cy="-5" r="5" fill="#44a51c"/>
