@@ -12,33 +12,33 @@
   <text x="25" y="35" class="title">Langages les plus utilisés</text>
   <clipPath id="bar"><rect x="25" y="55" width="445" height="8" rx="4"/></clipPath>
   <g clip-path="url(#bar)">
-    <rect x="25.00" y="55" width="219.99" height="8" fill="#9aa5ce"/>
-    <rect x="244.99" y="55" width="110.27" height="8" fill="#f34b7d"/>
-    <rect x="355.26" y="55" width="28.74" height="8" fill="#b07219"/>
-    <rect x="384.00" y="55" width="22.06" height="8" fill="#44a51c"/>
-    <rect x="406.06" y="55" width="12.13" height="8" fill="#000080"/>
-    <rect x="418.20" y="55" width="9.32" height="8" fill="#e34c26"/>
-    <rect x="427.52" y="55" width="42.48" height="8" fill="#565f89"/>
+    <rect x="25.00" y="55" width="219.57" height="8" fill="#9aa5ce"/>
+    <rect x="244.57" y="55" width="110.91" height="8" fill="#f34b7d"/>
+    <rect x="355.48" y="55" width="28.68" height="8" fill="#b07219"/>
+    <rect x="384.17" y="55" width="22.02" height="8" fill="#44a51c"/>
+    <rect x="406.18" y="55" width="12.11" height="8" fill="#000080"/>
+    <rect x="418.30" y="55" width="9.30" height="8" fill="#e34c26"/>
+    <rect x="427.60" y="55" width="42.40" height="8" fill="#565f89"/>
   </g>
   <g transform="translate(25, 92)">
     <circle cx="5" cy="-5" r="5" fill="#9aa5ce"/>
     <text x="18" y="0" class="label">C</text>
-    <text x="205" y="0" class="muted" text-anchor="end">49,4 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">49,3 %</text>
   </g>
   <g transform="translate(250, 92)">
     <circle cx="5" cy="-5" r="5" fill="#f34b7d"/>
     <text x="18" y="0" class="label">C++</text>
-    <text x="205" y="0" class="muted" text-anchor="end">24,8 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">24,9 %</text>
   </g>
   <g transform="translate(25, 118)">
     <circle cx="5" cy="-5" r="5" fill="#b07219"/>
     <text x="18" y="0" class="label">Java</text>
-    <text x="205" y="0" class="muted" text-anchor="end">6,5 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">6,4 %</text>
   </g>
   <g transform="translate(250, 118)">
     <circle cx="5" cy="-5" r="5" fill="#44a51c"/>
     <text x="18" y="0" class="label">QML</text>
-    <text x="205" y="0" class="muted" text-anchor="end">5,0 %</text>
+    <text x="205" y="0" class="muted" text-anchor="end">4,9 %</text>
   </g>
   <g transform="translate(25, 144)">
     <circle cx="5" cy="-5" r="5" fill="#000080"/>
